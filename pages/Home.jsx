@@ -1,7 +1,9 @@
+import mainImage from "../assets/main-photo.jpg"
+
 export default function Home() {
     return (
         <div className="main-photo">
-            <img src="../assets/main-photo.jpg" alt="main photo" />
+            <img src={mainImage} alt="main photo" />
             <div className="intro-text">
                 <h1>Welcome to <br />Maikol Sweets!</h1>
                 <p>

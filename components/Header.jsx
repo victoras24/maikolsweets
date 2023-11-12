@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom";
+import logoImage from "../assets/logo.png"
 import Navbar from "./Navbar";
 
 export default function Header() {
@@ -27,7 +28,7 @@ export default function Header() {
     return (
         <header className={`header ${visible ? 'visible' : 'hidden'}`}>
             <Navbar />
-            <NavLink to="/"><img className="logo-img" src="../assets/site-logo.png" alt="logo image" /></NavLink>
+            <NavLink to="/"><img className="logo-img" src={logoImage} alt="logo image" /></NavLink>
             <i className="fa fa-thin fa-cart-shopping"></i>
         </header>
     )
