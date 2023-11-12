@@ -23,7 +23,7 @@ export default function Navbar() {
         top: "0",
         backgroundColor: "rgba(255, 216, 61, 0.97)",
         overflowX: "hidden",
-        transition: "left 0.6s linear"
+        transition: "left 0.5s linear"
     }
 
     const activeStyles = {
