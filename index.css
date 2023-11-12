@@ -51,6 +51,11 @@ header {
     width: 105%;
 }
 
+.main-wrapper {
+    margin-top: 100px;
+}
+
+
 .intro-text {
     text-align: center;
     padding: 0 1.2rem;

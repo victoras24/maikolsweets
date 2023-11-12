@@ -1,10 +1,15 @@
-import React, { useState } from "react"
-import { NavLink } from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import { NavLink, useLocation } from "react-router-dom"
 
 
 export default function Navbar() {
     const [openIcon, setOpenIcon] = useState(false)
     const [showNav, setShowNav] = useState(false)
+    const location = useLocation()
+
+    useEffect(() => {
+        setShowNav(false)
+    }, [location.pathname])
 
     const toggleNav = () => {
         setOpenIcon((prevOpenIcon) => !prevOpenIcon)
@@ -25,7 +30,7 @@ export default function Navbar() {
 
     const activeStyles = {
         textDecoration: "underline",
-        color: "#FF8400"
+        color: "#F6F1E9"
     }
 
     return (
@@ -42,30 +47,30 @@ export default function Navbar() {
                 <div className="overlay-content">
 
                     <NavLink
-                        to="/"
+                        to="products"
                         className="nav-item"
-                    // style={({ isActive }) => isActive ? activeStyles : null}
+                        style={({ isActive }) => isActive ? activeStyles : null}
                     >Our Products
                     </NavLink>
 
                     <NavLink
                         className="nav-item"
-                        to="/"
-                    // style={({ isActive }) => isActive ? activeStyles : null}
+                        to="productscat"
+                        style={({ isActive }) => isActive ? activeStyles : null}
                     >Special Moments
                     </NavLink>
 
                     <NavLink
                         className="nav-item"
-                        to="/"
-                    // style={({ isActive }) => isActive ? activeStyles : null}
+                        to="about"
+                        style={({ isActive }) => isActive ? activeStyles : null}
                     >About us
                     </NavLink>
 
                     <NavLink
                         className="nav-item"
-                        to="/"
-                    // style={({ isActive }) => isActive ? activeStyles : null}
+                        to="account"
+                        style={({ isActive }) => isActive ? activeStyles : null}
                     >My account
                     </NavLink>
 
