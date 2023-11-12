@@ -3,17 +3,15 @@ import { NavLink, useLocation } from "react-router-dom"
 
 
 export default function Navbar() {
-    const [openIcon, setOpenIcon] = useState(false)
-    const [showNav, setShowNav] = useState(false)
+    const [show, setShow] = useState(false)
     const location = useLocation()
 
     useEffect(() => {
-        setShowNav(false)
+        setShow(false)
     }, [location.pathname])
 
     const toggleNav = () => {
-        setOpenIcon((prevOpenIcon) => !prevOpenIcon)
-        setShowNav((prevState) => !prevState)
+        setShow((prevState) => !prevState)
     }
 
     const navStyle = {
@@ -21,7 +19,7 @@ export default function Navbar() {
         width: "100%",
         position: "fixed",
         zIndex: "1",
-        left: showNav ? "0" : "-1000px",
+        left: show ? "0" : "-1000px",
         top: "0",
         backgroundColor: "rgba(255, 216, 61, 0.97)",
         overflowX: "hidden",
@@ -36,7 +34,7 @@ export default function Navbar() {
     return (
         <div>
 
-            <div id="nav-icon4" className={openIcon ? "open" : ""} onClick={toggleNav}>
+            <div id="nav-icon4" className={show ? "open" : ""} onClick={toggleNav}>
                 <span></span>
                 <span></span>
                 <span></span>
