@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "image": "../assets/one.jpg",
+        "name": "Chocolate Chip",
+        "description": "Delicious homemade chocolate chip cookies",
+        "price": 10.99
+    },
+    {
+        "id": 2,
+        "image": "../assets/two.jpg",
+        "name": "Halloween Candy",
+        "description": "Delicious homemade halloween candy",
+        "price": 10.20
+    },
+    {
+        "id": 3,
+        "image": "../assets/three.jpg",
+        "name": "Mendok",
+        "description": "Delicious homemade mendok",
+        "price": 15.99
+    },
+    {
+        "id": 4,
+        "image": "../assets/four.jpg",
+        "name": "Halloween treats",
+        "description": "Delicious homemade halloween treats",
+        "price": 16.33
+    }
+]

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 
-
 export default function Navbar() {
     const [show, setShow] = useState(false)
     const location = useLocation()
@@ -19,7 +18,7 @@ export default function Navbar() {
         width: "100%",
         position: "fixed",
         zIndex: "1",
-        left: show ? "0" : "-1000px",
+        left: show ? "0" : "-1500px",
         top: "0",
         backgroundColor: "rgba(255, 216, 61, 0.97)",
         overflowX: "hidden",

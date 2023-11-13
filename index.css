@@ -174,3 +174,30 @@ header {
     transform: rotate(-45deg);
     top: 11px;
 }
+
+/* products list page  */
+
+.products-list-container {
+    padding-inline: 25px;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 34px;
+    margin-top: 50px;
+}
+
+.product-title img {
+    object-fit: cover;
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.product-name,
+.product-price {
+    color: #4F200D;
+    margin: 0;
+}
