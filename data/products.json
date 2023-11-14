@@ -4,6 +4,7 @@
         "image": "../assets/one.jpg",
         "name": "Chocolate Chip",
         "description": "Delicious homemade chocolate chip cookies",
+        "type": "Chip",
         "price": 10.99
     },
     {
@@ -11,6 +12,7 @@
         "image": "../assets/two.jpg",
         "name": "Halloween Candy",
         "description": "Delicious homemade halloween candy",
+        "type": "Halloween",
         "price": 10.20
     },
     {
@@ -18,6 +20,7 @@
         "image": "../assets/three.jpg",
         "name": "Mendok",
         "description": "Delicious homemade mendok",
+        "type": "Cake",
         "price": 15.99
     },
     {
@@ -25,6 +28,7 @@
         "image": "../assets/four.jpg",
         "name": "Halloween treats",
         "description": "Delicious homemade halloween treats",
+        "type": "Treats",
         "price": 16.33
     }
 ]

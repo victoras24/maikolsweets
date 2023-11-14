@@ -20,14 +20,14 @@ export default function Navbar() {
         zIndex: "1",
         left: show ? "0" : "-1500px",
         top: "0",
-        backgroundColor: "rgba(255, 216, 61, 0.97)",
+        backgroundColor: "#FFD93D",
         overflowX: "hidden",
         transition: "left 0.5s linear"
     }
 
     const activeStyles = {
         textDecoration: "underline",
-        color: "#F6F1E9"
+        color: "#f1f1f1"
     }
 
     return (
@@ -50,12 +50,6 @@ export default function Navbar() {
                     >Our Products
                     </NavLink>
 
-                    <NavLink
-                        className="nav-item"
-                        to="productscat"
-                        style={({ isActive }) => isActive ? activeStyles : null}
-                    >Special Moments
-                    </NavLink>
 
                     <NavLink
                         className="nav-item"
@@ -71,6 +65,12 @@ export default function Navbar() {
                     >My account
                     </NavLink>
 
+                    <NavLink
+                        className="nav-item"
+                        to="contact"
+                        style={({ isActive }) => isActive ? activeStyles : null}
+                    >Contact
+                    </NavLink>
                 </div>
             </div>
 
