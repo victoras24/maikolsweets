@@ -1,12 +1,12 @@
-import { NavLink } from "react-router-dom"
-import products from "../data/products.json"
+import { Link } from "react-router-dom"
+import products from "../../data/products.json"
 
 export default function Products() {
 
     const productElements = products.map(product => (
         <div key={product.id} className="product-title">
-            <NavLink
-                to={product.id}
+            <Link
+                to={`/products/${product.id}`}
                 style={{ textDecoration: "none" }}
             >
                 <img src={product.image} alt="Product image" />
@@ -14,7 +14,7 @@ export default function Products() {
                     <h3 className="product-name">{product.name}</h3>
                     <p className="product-price">€{product.price}</p>
                 </div>
-            </NavLink>
+            </Link>
         </div>
     ))
 
