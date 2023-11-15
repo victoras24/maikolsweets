@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function Navbar() {
     const [show, setShow] = useState(false)
@@ -17,12 +18,36 @@ export default function Navbar() {
         height: "100%",
         width: "100%",
         position: "fixed",
-        zIndex: "1",
-        left: show ? "0" : "-1500px",
         top: "0",
+        left: "0",
         backgroundColor: "#FFD93D",
-        overflowX: "hidden",
-        transition: "left 0.5s linear"
+    }
+
+    const menuVariants = {
+        hidden: { scaleY: 0, originY: 0 },
+        visible: { scaleY: 1, originY: 0 },
+    };
+
+    const menuTransitions = {
+        duration: 0.5,
+        ease: "easeInOut"
+    }
+
+    const motionNavLinks = {
+        initial: {
+            y: "30vh",
+            transition: {
+                duration: 0.5,
+                ease: [0.37, 0, 0.63, 1]
+            },
+        },
+        open: {
+            y: 0,
+            transition: {
+                duration: 0.7,
+                east: [0, 0.55, 0.45, 1]
+            },
+        },
     }
 
     const activeStyles = {
@@ -38,42 +63,53 @@ export default function Navbar() {
                 <span></span>
                 <span></span>
             </div>
+            <AnimatePresence>
+                {show &&
+                    <motion.div
+                        className="overlay"
+                        style={navStyle}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hidden"
+                        variants={menuVariants}
+                        transition={menuTransitions}
+                    >
+                        <motion.div
+                            className="overlay-content"
+                            variants={motionNavLinks}
+                            initial="initial"
+                            animate="open"
+                        >
+                            <NavLink
+                                to="products"
+                                className="nav-item"
+                                style={({ isActive }) => isActive ? activeStyles : null}
+                            >Our Products
+                            </NavLink>
 
+                            <NavLink
+                                className="nav-item"
+                                to="about"
+                                style={({ isActive }) => isActive ? activeStyles : null}
+                            >About us
+                            </NavLink>
 
-            <div className="overlay" style={navStyle}>
-                <div className="overlay-content">
+                            <NavLink
+                                className="nav-item"
+                                to="account"
+                                style={({ isActive }) => isActive ? activeStyles : null}
+                            >My account
+                            </NavLink>
 
-                    <NavLink
-                        to="products"
-                        className="nav-item"
-                        style={({ isActive }) => isActive ? activeStyles : null}
-                    >Our Products
-                    </NavLink>
-
-
-                    <NavLink
-                        className="nav-item"
-                        to="about"
-                        style={({ isActive }) => isActive ? activeStyles : null}
-                    >About us
-                    </NavLink>
-
-                    <NavLink
-                        className="nav-item"
-                        to="account"
-                        style={({ isActive }) => isActive ? activeStyles : null}
-                    >My account
-                    </NavLink>
-
-                    <NavLink
-                        className="nav-item"
-                        to="contact"
-                        style={({ isActive }) => isActive ? activeStyles : null}
-                    >Contact
-                    </NavLink>
-                </div>
-            </div>
-
-        </div>
+                            <NavLink
+                                className="nav-item"
+                                to="contact"
+                                style={({ isActive }) => isActive ? activeStyles : null}
+                            >Contact
+                            </NavLink>
+                        </motion.div>
+                    </motion.div>}
+            </AnimatePresence>
+        </div >
     )
 }
