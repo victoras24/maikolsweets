@@ -84,28 +84,28 @@ export default function Navbar() {
                                 to="products"
                                 className="nav-item"
                                 style={({ isActive }) => isActive ? activeStyles : null}
-                            >Our Products
+                            >OUR PRODUCTS
                             </NavLink>
 
                             <NavLink
                                 className="nav-item"
                                 to="about"
                                 style={({ isActive }) => isActive ? activeStyles : null}
-                            >About us
+                            >ABOUT US
                             </NavLink>
 
                             <NavLink
                                 className="nav-item"
                                 to="account"
                                 style={({ isActive }) => isActive ? activeStyles : null}
-                            >My account
+                            >MY ACOUNT
                             </NavLink>
 
                             <NavLink
                                 className="nav-item"
                                 to="contact"
                                 style={({ isActive }) => isActive ? activeStyles : null}
-                            >Contact
+                            >CONTACT
                             </NavLink>
                         </motion.div>
                     </motion.div>}

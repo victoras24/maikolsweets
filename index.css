@@ -106,17 +106,17 @@ header {
     gap: 50px;
     position: relative;
     top: 10%;
-    text-align: start;
-    margin-left: 30px;
+    text-align: center;
+    /* margin-left: 24px; */
     margin-top: 50px;
 }
 
 .nav-item {
     text-decoration: none;
     color: #4F200D;
-    font-family: 'Roboto';
+    font-family: 'Lora';
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: bold;
     overflow: hidden;
 }
 
@@ -184,12 +184,22 @@ header {
     padding-inline: 25px;
 }
 
+.products-list-container h1 {
+    text-align: center;
+}
+
+.products-filter {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 50px 0;
+}
+
 .products-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 34px;
-    margin-top: 50px;
+    margin-top: 16px;
 }
 
 .product-container {
@@ -218,4 +228,105 @@ header {
     border-radius: 2px;
     font-weight: bold;
     color: #fffcf7;
+}
+
+/* Product type select */
+
+.box {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ffe88d;
+    margin: 0;
+}
+
+ul {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    flex-direction: column;
+}
+
+li {
+    display: block;
+    background: #ffe88d;
+    cursor: pointer;
+    width: 80%;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+button {
+    -webkit-appearance: button;
+    background: #ffe88d;
+    color: #1f1f1f;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 150px;
+}
+
+input {
+    accent-color: #ffe88d;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+input[type="number"] {
+    border: 0;
+    border-bottom: 1px dotted #ffe88d;
+    color: #ffe88d;
+    margin-left: 10px;
+    background: #1f1f1f;
+    width: 50px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-bottom: 2px solid #ffe88d;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffe88d;
+    color: #1f1f1f;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: 30px;
 }

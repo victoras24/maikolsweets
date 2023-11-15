@@ -1,12 +1,14 @@
-import { Link, useSearchParams } from "react-router-dom"
-import products from "../../data/products.json"
+import React from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import ProductTypeBox from "../../components/ProductTypeBox";
+import products from "../../data/products.json";
 
 export default function Products() {
     const [searchParams, setSearchParams] = useSearchParams()
     const typeFilter = searchParams.get("type")
 
-    const handleTypeChange = (event) => {
-        const selectedType = event.target.value
+    const handleTypeChange = (selectedType) => {
         setSearchParams((prevParams) => {
             if (selectedType === "") {
                 prevParams.delete("type")
@@ -31,29 +33,25 @@ export default function Products() {
                     type: typeFilter,
                 }}
             >
-                <img src={product.image} alt="Product image" />
+                <motion.img
+                    src={product.image}
+                    alt="Product image"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                />
                 <div className="product-info">
                     <h3 className="product-name">{product.name}</h3>
                     <p className="product-price">€{product.price}</p>
                 </div>
-                <div className={'product-type'}>{product.type.toUpperCase()}</div>
+                <div className={"product-type"}>{product.type.toUpperCase()}</div>
             </Link>
         </div>
     ))
 
-    const types = products.map((product) => product.type)
-
     return (
         <div className="products-list-container">
             <h1>Explore our product options</h1>
-            <select value={typeFilter || ""} onChange={handleTypeChange}>
-                <option value="">All Types</option>
-                {types.map((type) => (
-                    <option key={type} value={type}>
-                        {type}
-                    </option>
-                ))}
-            </select>
+            <ProductTypeBox handleTypeChange={handleTypeChange} />
             <div className="products-list">{productElements}</div>
         </div>
     )

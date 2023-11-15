@@ -1,7 +1,5 @@
-
 export default function ProductDetail() {
-
     return (
-        <h1>Product Detail page</h1>
+        <h1>Hello to product detail</h1>
     )
 }
