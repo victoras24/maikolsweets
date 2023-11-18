@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import mainImage from "../assets/main-photo.jpg"
 
 export default function Home() {
+
     return (
         <div className="main-photo">
             <img src={mainImage} alt="main photo" />

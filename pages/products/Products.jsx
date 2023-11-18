@@ -23,8 +23,12 @@ export default function Products() {
         ? products.filter((product) => product.type === typeFilter)
         : products
 
+
+
     const productElements = displayedProducts.map((product) => (
-        <div key={product.id} className="product-container">
+        <motion.div
+            key={product.id}
+            className="product-container">
             <Link
                 to={`/products/${product.id}`}
                 style={{ textDecoration: "none" }}
@@ -45,7 +49,7 @@ export default function Products() {
                 </div>
                 <div className={"product-type"}>{product.type.toUpperCase()}</div>
             </Link>
-        </div>
+        </motion.div>
     ))
 
     return (

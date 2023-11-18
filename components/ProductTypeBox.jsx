@@ -57,10 +57,10 @@ export default function ProductTypeBox({ handleTypeChange }) {
     return (
         <div>
             <div ref={ref} />
-            <div className="example">
+            <div className="type-container">
                 <div className="controls">
                     <motion.button
-                        whileTap={{ scale: 0.95 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={toggleShow}
                     >
                         {selectedType ? `${selectedType} products` : "Show types"}
