@@ -31,7 +31,7 @@ export default function ProductDetail() {
                         <h2>{clickedProduct.name}</h2>
                         <p className="clickedProduct-price">{`€${clickedProduct.price}`}</p>
                         <p>{clickedProduct.description}</p>
-                        <div>
+                        <div className="add-to-cart-button-container">
                             <button className="add-to-cart-button">Add to cart</button>
                         </div>
                     </div>

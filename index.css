@@ -338,7 +338,7 @@ li {
 }
 
 .add-to-cart-button {
-    padding: 10px 135px;
+    padding: 10px 130px;
     background: #ff8c38;
     color: white;
     font-weight: 600;
@@ -348,4 +348,10 @@ li {
     font-size: 20px;
     cursor: pointer;
     white-space: nowrap;
+}
+
+.add-to-cart-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
