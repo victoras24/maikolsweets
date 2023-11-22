@@ -3,32 +3,32 @@
         "id": 1,
         "image": "../assets/one.jpg",
         "name": "Chocolate Chip",
-        "description": "Delicious homemade chocolate chip cookies",
+        "description": "Delicious homemade chocolate chip cookies. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Seasonal",
-        "price": 10.99
+        "price": "10.99"
     },
     {
         "id": 2,
         "image": "../assets/two.jpg",
-        "name": "Special moments",
-        "description": "Delicious homemade halloween candy",
+        "name": "Candy",
+        "description": "Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Tranditional",
-        "price": 10.20
+        "price": "10.20"
     },
     {
         "id": 3,
         "image": "../assets/three.jpg",
         "name": "Mendok",
-        "description": "Delicious homemade mendok",
+        "description": "Delicious homemade mendok.Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Vegan",
-        "price": 15.99
+        "price": "15.99"
     },
     {
         "id": 4,
         "image": "../assets/four.jpg",
         "name": "Treat",
-        "description": "Delicious homemade halloween treats",
-        "type": "Treats",
-        "price": 16.33
+        "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
+        "type": "Birthday",
+        "price": "16.33"
     }
 ]

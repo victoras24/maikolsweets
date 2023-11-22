@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ProductTypeBox from "../../components/ProductTypeBox";
 import products from "../../data/products.json";
 
@@ -28,12 +28,15 @@ export default function Products() {
     const productElements = displayedProducts.map((product) => (
         <motion.div
             key={product.id}
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
             className="product-container">
             <Link
-                to={`/products/${product.id}`}
+                to={`${product.id}`}
                 style={{ textDecoration: "none" }}
                 state={{
-                    search: searchParams.toString(),
+                    search: `?${searchParams.toString()}`,
                     type: typeFilter,
                 }}
             >

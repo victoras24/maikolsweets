@@ -60,6 +60,7 @@ export default function ProductTypeBox({ handleTypeChange }) {
             <div className="type-container">
                 <div className="controls">
                     <motion.button
+                        className="filter-button"
                         whileTap={{ scale: 0.9 }}
                         onClick={toggleShow}
                     >

@@ -80,6 +80,14 @@ export default function Navbar() {
                             initial="initial"
                             animate="open"
                         >
+
+                            <NavLink
+                                to="/"
+                                className="nav-item"
+                                style={({ isActive }) => isActive ? activeStyles : null}
+                            >HOME
+                            </NavLink>
+
                             <NavLink
                                 to="products"
                                 className="nav-item"
@@ -98,7 +106,7 @@ export default function Navbar() {
                                 className="nav-item"
                                 to="account"
                                 style={({ isActive }) => isActive ? activeStyles : null}
-                            >MY ACOUNT
+                            >MY ACCOUNT
                             </NavLink>
 
                             <NavLink
