@@ -73,15 +73,15 @@ header {
 
 .main-button {
     text-align: center;
-    padding: 1rem 2.4rem;
-    border: 0.5px solid #FFD93D;
-    border-radius: 0.5rem;
-    background-color: transparent;
-    font-family: 'Agbalumo';
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #4F200D;
+    padding: 10px 50px;
+    background: #ffe88d;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .main-button:hover {

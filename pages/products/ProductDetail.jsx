@@ -1,5 +1,5 @@
 import { Link, useLocation, useParams } from "react-router-dom"
-import products from "../../data/products.json"
+import productsData from "../../data/products.json"
 
 export default function ProductDetail() {
 
@@ -7,7 +7,10 @@ export default function ProductDetail() {
     const { id } = useParams()
     const search = location.state?.search || ""
     const type = location.state?.type || "all"
-    const clickedProduct = products.find((product) => product.id === parseInt(id))
+
+    const products = JSON.parse(JSON.stringify(productsData))
+
+    const clickedProduct = products.find((product) => product.id === Number(id))
 
     return (
         <div className="product-detail-container">
@@ -25,7 +28,9 @@ export default function ProductDetail() {
                         <div className="product-detail-img-container">
                             <img className="product-detail-img" src={clickedProduct.image} alt="clickedProduct image" />
                         </div>
-                        <i className={`clickedProduct-type ${clickedProduct.type} selected`}>
+                        <i
+                            className={`clickedProduct-type ${clickedProduct.type} selected`}
+                        >
                             {clickedProduct.type}
                         </i>
                         <h2>{clickedProduct.name}</h2>
