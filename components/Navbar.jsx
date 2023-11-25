@@ -15,7 +15,7 @@ export default function Navbar() {
     }
 
     const navStyle = {
-        height: "100%",
+        height: "100vh",
         width: "100%",
         position: "fixed",
         top: "0",
@@ -45,7 +45,7 @@ export default function Navbar() {
             y: 0,
             transition: {
                 duration: 0.7,
-                east: [0, 0.55, 0.45, 1]
+                ease: [0, 0.55, 0.45, 1]
             },
         },
     }

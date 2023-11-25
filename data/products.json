@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "image": "../assets/one.jpg",
+        "image": "https://images.pexels.com/photos/10586982/pexels-photo-10586982.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "name": "Chocolate Chip",
         "description": "Delicious homemade chocolate chip cookies. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Seasonal",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "image": "../assets/two.jpg",
+        "image": "https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "name": "Candy",
         "description": "Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Tranditional",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "image": "../assets/three.jpg",
+        "image": "https://images.pexels.com/photos/10585075/pexels-photo-10585075.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "name": "Mendok",
         "description": "Delicious homemade mendok.Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Vegan",
@@ -25,7 +25,39 @@
     },
     {
         "id": 4,
-        "image": "../assets/four.jpg",
+        "image": "https://images.pexels.com/photos/5732158/pexels-photo-5732158.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "name": "Treat",
+        "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
+        "type": "Birthday",
+        "price": "16.33"
+    },
+    {
+        "id": 5,
+        "image": "https://images.pexels.com/photos/13640960/pexels-photo-13640960.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "name": "Treat",
+        "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
+        "type": "Birthday",
+        "price": "16.33"
+    },
+    {
+        "id": 6,
+        "image": "https://images.pexels.com/photos/17274029/pexels-photo-17274029/free-photo-of-chocolate-cake-with-cherries.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "name": "Treat",
+        "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
+        "type": "Birthday",
+        "price": "16.33"
+    },
+    {
+        "id": 7,
+        "image": "https://images.pexels.com/photos/11112047/pexels-photo-11112047.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "name": "Treat",
+        "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
+        "type": "Birthday",
+        "price": "16.33"
+    },
+    {
+        "id": 8,
+        "image": "https://images.pexels.com/photos/14107/pexels-photo-14107.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "name": "Treat",
         "description": "Delicious homemade birthday cake. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Birthday",

@@ -3,9 +3,16 @@ import { usePresence, motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import products from "../data/products.json";
 
-const types = products.map((product) => product.type)
+const typesSet = new Set()
+const types = products.map((product) => {
+    if (!typesSet.has(product.type)) {
+        typesSet.add(product.type)
+        return product.type
+    }
+    return null // Return null for duplicate types
+}).filter(Boolean) // Filter out null values
 
-const Box = ({ handleTypeChange }) => {
+const Box = ({ handleTypeChange, selectedType, setSelectedType }) => {
     return (
         <motion.ul
             initial={{ opacity: 0 }}
@@ -15,7 +22,11 @@ const Box = ({ handleTypeChange }) => {
         >
             <li onClick={() => handleTypeChange("")}>View all</li>
             {types.map((type) => (
-                <li key={type} onClick={() => handleTypeChange(type)}>
+                <li
+                    key={type}
+                    onClick={() => handleTypeChange(type)}
+                    style={{ pointerEvents: type === selectedType ? "none" : "auto" }}
+                >
                     {type}
                 </li>
             ))}
@@ -68,8 +79,16 @@ export default function ProductTypeBox({ handleTypeChange }) {
                     </motion.button>
                 </div>
 
-                <AnimatePresence>{show && <Box handleTypeChange={handleTypeSelect} />}</AnimatePresence>
+                <AnimatePresence>
+                    {show && (
+                        <Box
+                            handleTypeChange={handleTypeSelect}
+                            selectedType={selectedType}
+                            setSelectedType={setSelectedType}
+                        />
+                    )}
+                </AnimatePresence>
             </div>
         </div>
-    );
+    )
 }

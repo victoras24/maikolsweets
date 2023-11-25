@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ProductTypeBox from "../../components/ProductTypeBox";
 import products from "../../data/products.json";
 
@@ -34,6 +34,8 @@ export default function Products() {
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: -300, opacity: 0 }}
+                        transition={{ type: "spring" }}
+                        layout
                         className="product-container">
                         <Link
                             to={product.id.toString()}
@@ -57,5 +59,5 @@ export default function Products() {
                         </Link>
                     </motion.div>))}
             </div>
-        </div>)
+        </div >)
 }

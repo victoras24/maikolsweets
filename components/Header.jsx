@@ -20,7 +20,7 @@ export default function Header() {
 
     return (
         <motion.header
-            className="header-container"
+            className="header"
             variants={{
                 visible: { y: 0 },
                 hidden: { y: "-100%" },
