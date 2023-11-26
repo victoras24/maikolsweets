@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import ProductTypeBox from "../../components/ProductTypeBox";
 import products from "../../data/products.json";
 

@@ -7,20 +7,24 @@ import About from "./pages/About"
 import Account from "./pages/Account"
 import Contact from "./pages/Contact"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { CartProvider } from "./components/CartProvider"
+
 
 export default function Layouts() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="products" element={<Products />} />
-                    <Route path="products/:id" element={<ProductDetail />} />
-                    <Route path="about" element={<About />} />
-                    <Route path="account" element={<Account />} />
-                    <Route path="contact" element={<Contact />} />
-                </Route>
-            </Routes>
+            <CartProvider>
+                <Routes>
+                    <Route path="/" element={<Layout />}>
+                        <Route index element={<Home />} />
+                        <Route path="products" element={<Products />} />
+                        <Route path="products/:id" element={<ProductDetail />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="account" element={<Account />} />
+                        <Route path="contact" element={<Contact />} />
+                    </Route>
+                </Routes>
+            </CartProvider>
         </BrowserRouter>
     )
 }

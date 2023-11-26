@@ -41,13 +41,13 @@ body {
     top: -100px;
 }
 
-.fa-cart-shopping {
+.fa-bag-shopping {
     position: relative;
     margin-top: 20px;
-    font-size: 20px;
-    color: #4F200D;
+    color: #191919;
     text-align: center;
     cursor: pointer;
+    font-weight: 100;
 }
 
 .main-photo>img {
@@ -113,7 +113,6 @@ footer {
     position: relative;
     top: 10%;
     text-align: center;
-    /* margin-left: 24px; */
     margin-top: 50px;
 }
 
@@ -134,8 +133,8 @@ footer {
 /* Hamburger to X */
 
 #nav-icon4 {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     position: relative;
     margin: 20px auto;
     transform: rotate(0deg);
@@ -148,7 +147,7 @@ footer {
     position: absolute;
     height: 2px;
     width: 100%;
-    background: #4F200D;
+    background: #191919;
     border-radius: 3px;
     opacity: 1;
     left: 0;
@@ -421,4 +420,64 @@ li {
 
 .about-image-end {
     margin-bottom: 150px;
+}
+
+/* cart */
+
+.fa-bag-shopping {
+    font-size: 25px;
+}
+
+.cart-container {
+    height: 100vh;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+}
+
+.cart-content {
+    margin: 0 20px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cdcdcd;
+    color: #777777;
+    font-weight: 500;
+}
+
+.cart-backdrop {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fa-xmark {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-empty {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cart-empty i {
+    font-size: 50px;
+    color: #cdcdcd;
+    margin-bottom: 10px;
+}
+
+.cart-empty p {
+    color: #cdcdcd;
 }

@@ -1,7 +1,9 @@
 import { Link, useLocation, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
+import { useCart } from "../../components/CartProvider"
 
 export default function ProductDetail() {
+    const { addToCart } = useCart()
 
     const location = useLocation()
     const { id } = useParams()
@@ -37,7 +39,7 @@ export default function ProductDetail() {
                         <p className="clickedProduct-price">{`€${clickedProduct.price}`}</p>
                         <p>{clickedProduct.description}</p>
                         <div className="add-to-cart-button-container">
-                            <button className="add-to-cart-button">Add to cart</button>
+                            <button className="add-to-cart-button" onClick={() => addToCart(clickedProduct)}>Add to cart</button>
                         </div>
                     </div>
                 )

@@ -3,11 +3,17 @@ import { NavLink } from "react-router-dom";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import logoImage from "../assets/site-logo.png"
 import Navbar from "./Navbar";
+import Cart from "./Cart";
 
 export default function Header() {
 
+    const [openCart, setOpenCart] = useState(false)
     const [visible, setVisible] = useState(false)
     const { scrollY } = useScroll()
+
+    const toggleCart = () => {
+        setOpenCart((prevState) => !prevState)
+    }
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious()
@@ -28,9 +34,9 @@ export default function Header() {
             animate={visible ? "hidden" : "visible"}
             transition={{ duration: 0.35, ease: "easeInOut" }}
         >
-            <Navbar />
+            <Navbar openCart={openCart} />
             <NavLink to="/"><img className="logo-img" src={logoImage} alt="logo image" /></NavLink>
-            <i className="fa fa-thin fa-cart-shopping"></i>
+            <Cart openCart={openCart} toggleCart={toggleCart} />
         </motion.header>
     )
 } 

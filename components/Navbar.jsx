@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
 
-export default function Navbar() {
+export default function Navbar({ openCart }) {
     const [show, setShow] = useState(false)
     const location = useLocation()
 
@@ -56,13 +56,21 @@ export default function Navbar() {
     }
 
     return (
+
         <div>
 
-            <div id="nav-icon4" className={show ? "open" : ""} onClick={toggleNav}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            {
+                openCart ? null :
+                    <AnimatePresence>
+                        <motion.div
+                            id="nav-icon4" className={show ? "open" : ""} onClick={toggleNav}
+                        >
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </motion.div>
+                    </AnimatePresence>
+            }
             <AnimatePresence>
                 {show &&
                     <motion.div
