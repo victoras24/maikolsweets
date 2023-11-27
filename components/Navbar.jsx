@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
+import { useCart } from "./CartProvider";
 
-export default function Navbar({ openCart }) {
+export default function Navbar() {
+    const { openCart } = useCart()
     const [show, setShow] = useState(false)
     const location = useLocation()
 

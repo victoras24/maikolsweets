@@ -4,16 +4,14 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import logoImage from "../assets/site-logo.png"
 import Navbar from "./Navbar";
 import Cart from "./Cart";
+import { useCart } from "./CartProvider";
 
 export default function Header() {
 
-    const [openCart, setOpenCart] = useState(false)
+
+    const { openCart, toggle } = useCart()
     const [visible, setVisible] = useState(false)
     const { scrollY } = useScroll()
-
-    const toggleCart = () => {
-        setOpenCart((prevState) => !prevState)
-    }
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious()
@@ -34,9 +32,9 @@ export default function Header() {
             animate={visible ? "hidden" : "visible"}
             transition={{ duration: 0.35, ease: "easeInOut" }}
         >
-            <Navbar openCart={openCart} />
+            <Navbar />
             <NavLink to="/"><img className="logo-img" src={logoImage} alt="logo image" /></NavLink>
-            <Cart openCart={openCart} toggleCart={toggleCart} />
+            <Cart />
         </motion.header>
     )
 } 

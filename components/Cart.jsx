@@ -1,15 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "./CartProvider";
 
-export default function Cart({ toggleCart, openCart }) {
+export default function Cart() {
 
-    const { cartItems } = useCart()
-    const { removeFromCart } = useCart()
+    const { cartItems, removeFromCart, openCart, toggle } = useCart()
 
     const containerVariants = {
         hidden: { x: "-100%", opacity: 0 },
         visible: { x: 0, opacity: 1, transition: { duration: 0.2, ease: "easeInOut" } },
-    };
+    }
 
     const motionText = {
         initial: {
@@ -28,11 +27,12 @@ export default function Cart({ toggleCart, openCart }) {
                 ease: [0, 0.55, 0.45, 1],
             },
         },
-    };
+    }
 
     return (
         <div>
-            <i className="fa fa-bag-shopping" onClick={toggleCart} />
+            <i className="fa fa-bag-shopping" onClick={toggle} />
+            {cartItems.length === 0 ? null : <span className="badge-cart" onClick={toggle}>{cartItems.length}</span>}
             <AnimatePresence>
                 {openCart && (
                     <div className="cart-backdrop" >
@@ -51,7 +51,7 @@ export default function Cart({ toggleCart, openCart }) {
                             >
                                 <div className="cart-header">
                                     <p>SHOPPING CART</p>
-                                    <i className="fa fa-xmark" onClick={toggleCart}></i>
+                                    <i className="fa fa-xmark" onClick={toggle}></i>
                                 </div>
                                 <div className="cart-items">
                                     <ul>
@@ -65,8 +65,14 @@ export default function Cart({ toggleCart, openCart }) {
                                                 <li
                                                     key={index}
                                                 >
-                                                    {item.name}
-                                                    <i className="fa fa-thin fa-trash-can" onClick={() => removeFromCart(item.id)}></i>
+                                                    <div className="cart-item-container">
+                                                        <img className="cart-item-image" src={item.image} />
+                                                        <div className="cart-item-name-price">
+                                                            <p>{item.name}</p>
+                                                            <p className="cart-item-price">€{item.price}</p>
+                                                        </div>
+                                                        <i className="fa fa-thin fa-trash-can" onClick={() => removeFromCart(item.id)}></i>
+                                                    </div>
                                                 </li>
                                             ))
                                         )}
@@ -78,5 +84,5 @@ export default function Cart({ toggleCart, openCart }) {
                 )}
             </AnimatePresence>
         </div >
-    );
+    )
 }
