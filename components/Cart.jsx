@@ -1,9 +1,24 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "./CartProvider";
+import { useEffect, useRef } from "react";
 
 export default function Cart() {
+    const cartRef = useRef(null)
+    const { cartItems, removeFromCart, openCart, toggle, setOpenCart } = useCart()
 
-    const { cartItems, removeFromCart, openCart, toggle } = useCart()
+    useEffect(() => {
+        const handleClickingOutsideCartContainer = (e) => {
+            if (cartRef.current && !cartRef.current.contains(e.target)) {
+                setOpenCart(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickingOutsideCartContainer)
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickingOutsideCartContainer)
+        }
+    }, [cartRef, setOpenCart])
 
     const containerVariants = {
         hidden: { x: "-100%", opacity: 0 },
@@ -44,6 +59,7 @@ export default function Cart() {
                             exit="hidden"
                         >
                             <motion.div
+                                ref={cartRef}
                                 className="cart-content"
                                 variants={motionText}
                                 initial="initial"
