@@ -114,7 +114,7 @@ export default function Navbar() {
 
                             <NavLink
                                 className="nav-item"
-                                to="account"
+                                to="login"
                                 style={({ isActive }) => isActive ? activeStyles : null}
                             >MY ACCOUNT
                             </NavLink>
