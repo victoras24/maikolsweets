@@ -1,20 +1,28 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../../data/firebase"
 
 export default function Login() {
-    const [loginData, setLoginData] = useState({ email: "", password: "" })
+    const navigate = useNavigate()
 
-    const formSubmit = (e) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const onLogin = (e) => {
         e.preventDefault()
-        console.log(loginData)
-    }
-
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setLoginData(prev => ({
-            ...prev,
-            [name]: value
-        }))
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user
+                navigate("/")
+                console.log(user)
+            })
+            .catch((error) => {
+                const errorCode = error.code
+                const errorMessage = error.message
+                console.log(errorCode, errorMessage)
+            })
     }
 
     return (
@@ -33,22 +41,22 @@ export default function Login() {
             <div className="account-login-container">
                 <h3>LOGIN</h3>
                 <p>If you have an account please login.</p>
-                <form className="login-form" onSubmit={formSubmit}>
+                <form className="login-form">
                     <input
                         name="email"
-                        onChange={handleChange}
+                        onChange={(e) => setEmail(e.target.value)}
                         type="email"
                         placeholder="Email address"
-                        value={loginData.email}
+                        value={email}
                     />
                     <input
                         name="password"
-                        onChange={handleChange}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Password"
-                        value={loginData.password}
+                        value={password}
                     />
-                    <button>Login</button>
+                    <button onClick={onLogin}>Login</button>
                 </form>
             </div>
         </div>
