@@ -613,3 +613,62 @@ li {
 .account-register-container {
     padding: 20px;
 }
+
+.account-register-container p {
+    color: #777777;
+}
+
+.google-login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9b4756;
+    padding: 15px 20px;
+    background-color: #a2657031;
+    cursor: pointer;
+}
+
+.google-login-button {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #993245;
+    text-align: justify;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fa-google {
+    color: #993245;
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.facebook-login-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4267B2;
+    padding: 15px 20px;
+    background-color: #4267b22a;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.facebook-login-button {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #4267B2;
+    text-align: justify;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fa-facebook {
+    color: #4267B2;
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}

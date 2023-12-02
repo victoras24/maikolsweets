@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../data/firebase';
+import { GoogleLogin } from "./GoogleLogin"
+import { FacebookLogin } from "./FacebookLogin";
+
 
 export default function Register() {
     const navigate = useNavigate()
@@ -49,6 +52,9 @@ export default function Register() {
                     onClick={authCreateAccountWithEmail}
                 >Register</button>
             </form>
+            <p>or</p>
+            <FacebookLogin />
+            <GoogleLogin />
         </div>
     )
 }
