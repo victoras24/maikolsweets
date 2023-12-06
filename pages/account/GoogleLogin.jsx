@@ -1,17 +1,26 @@
-import { signInWithGooglePopup } from "../../data/firebase"
+import { getRedirectResult } from "firebase/auth";
+import { useEffect } from "react";
+import { auth, signInWithGoogleRedirect } from "../../data/firebase";
 
-export const GoogleLogin = () => {
-    const logGoogleUser = async () => {
-        const res = await signInWithGooglePopup()
-        console.log(res)
-    }
+export function GoogleLogin() {
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getRedirectResult(auth)
+                console.log(response)
+            } catch (error) {
+                console.error("Error during Google login:", error)
+            }
+        }
+        fetchData()
+    }, [])
+
     return (
-        <div onClick={logGoogleUser} className="google-login-container">
+        <div onClick={signInWithGoogleRedirect} className="google-login-container">
             <button className="google-login-button">
                 Login with Google
             </button>
-            <i class="fa fa-brands fa-google"></i>
+            <i className="fa fa-brands fa-google"></i>
         </div>
-    )
+    );
 }
-

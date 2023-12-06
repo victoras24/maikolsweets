@@ -1,16 +1,27 @@
-import { signInWithFacebookPopup } from "../../data/firebase"
+import { getRedirectResult } from "firebase/auth";
+import { useEffect } from "react";
+import { auth, signInWithFacebookRedirect } from "../../data/firebase";
 
-export const FacebookLogin = () => {
-    const logFacebookUser = async () => {
-        const res = await signInWithFacebookPopup()
-        console.log(res)
-    }
+export function FacebookLogin() {
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await getRedirectResult(auth)
+                console.log(response)
+            } catch (error) {
+                console.error("Error during Facebook login:", error)
+            }
+        }
+        fetchData()
+    }, [])
+
     return (
-        <div onClick={logFacebookUser} className="facebook-login-container">
+        <div onClick={signInWithFacebookRedirect} className="facebook-login-container">
             <button className="facebook-login-button">
                 Login with Facebook
             </button>
-            <i class="fa fa-brands fa-facebook"></i>
+            <i className="fa fa-brands fa-facebook"></i>
         </div>
-    )
+    );
 }
