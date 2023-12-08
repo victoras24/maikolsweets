@@ -623,7 +623,6 @@ li {
     justify-content: space-between;
     align-items: center;
     color: #9b4756;
-    padding: 15px 20px;
     background-color: #a2657031;
     cursor: pointer;
 }
@@ -633,6 +632,7 @@ li {
     background-color: transparent;
     font-size: 16px;
     color: #993245;
+    padding: 15px 20px;
     text-align: justify;
     font-weight: 600;
     cursor: pointer;
@@ -641,7 +641,7 @@ li {
 .fa-google {
     color: #993245;
     font-size: 24px;
-    margin-left: 10px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
@@ -650,7 +650,6 @@ li {
     justify-content: space-between;
     align-items: center;
     color: #4267B2;
-    padding: 15px 20px;
     background-color: #4267b22a;
     cursor: pointer;
     margin-bottom: 10px;
@@ -660,6 +659,7 @@ li {
     border: none;
     background-color: transparent;
     font-size: 16px;
+    padding: 15px 20px;
     color: #4267B2;
     text-align: justify;
     font-weight: 600;
@@ -669,7 +669,7 @@ li {
 .fa-facebook {
     color: #4267B2;
     font-size: 24px;
-    margin-left: 10px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
