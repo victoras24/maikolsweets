@@ -672,3 +672,15 @@ li {
     margin-left: 10px;
     cursor: pointer;
 }
+
+.register-alert {
+    color: #d03c38;
+    padding-bottom: 20px;
+    border: none;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.fa-circle-exclamation {
+    margin-right: 20px;
+}

@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap"
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { GoogleLogin } from "./GoogleLogin"
 import { FacebookLogin } from "./FacebookLogin";
+import AccountSignOut from "./AccountSignOut";
 
 
 export default function Register() {
     const navigate = useNavigate()
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
     const authCreateAccountWithEmail = async (e) => {
         e.preventDefault()
@@ -18,11 +20,12 @@ export default function Register() {
             .then((userCredential) => {
                 const user = userCredential.user
                 console.log(user)
-                navigate("/login")
+                navigate("/")
             })
             .catch((error) => {
                 const errorCode = error.code
                 const errorMessage = error.message
+                setError(error.message)
                 console.log(errorCode, errorMessage)
             })
     }
@@ -32,6 +35,7 @@ export default function Register() {
             <h1>
                 Create an account
             </h1>
+            {error && <Alert className="register-alert" variant="danger"><i class="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
             <form onSubmit={authCreateAccountWithEmail} className="login-form">
                 <input
                     name="email"
@@ -55,6 +59,7 @@ export default function Register() {
             <p>or</p>
             <FacebookLogin />
             <GoogleLogin />
+            <AccountSignOut />
         </div>
     )
 }

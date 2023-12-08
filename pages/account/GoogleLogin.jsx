@@ -16,7 +16,7 @@ export function GoogleLogin() {
     }, [])
 
     return (
-        <div onClick={signInWithGoogleRedirect} className="google-login-container">
+        <div onClick={signInWithGoogleRedirect} onTouchStart={signInWithGoogleRedirect} className="google-login-container">
             <button className="google-login-button">
                 Login with Google
             </button>

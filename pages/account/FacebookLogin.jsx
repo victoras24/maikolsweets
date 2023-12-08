@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { auth, signInWithFacebookRedirect } from "../../data/firebase";
 
 export function FacebookLogin() {
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -17,7 +16,7 @@ export function FacebookLogin() {
     }, [])
 
     return (
-        <div onClick={signInWithFacebookRedirect} className="facebook-login-container">
+        <div onClick={signInWithFacebookRedirect} onTouchStart={signInWithFacebookRedirectcd} className="facebook-login-container">
             <button className="facebook-login-button">
                 Login with Facebook
             </button>
