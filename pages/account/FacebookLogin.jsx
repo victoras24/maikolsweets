@@ -16,7 +16,7 @@ export function FacebookLogin() {
     }, [])
 
     return (
-        <div onClick={signInWithFacebookRedirect} onTouchStart={signInWithFacebookRedirectcd} className="facebook-login-container">
+        <div onClick={signInWithFacebookRedirect} onTouchStart={signInWithFacebookRedirect} className="facebook-login-container">
             <button className="facebook-login-button">
                 Login with Facebook
             </button>
