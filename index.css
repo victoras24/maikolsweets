@@ -43,11 +43,10 @@ body {
 
 .fa-bag-shopping {
     position: relative;
-    margin-top: 20px;
     color: #191919;
     text-align: center;
     cursor: pointer;
-    font-weight: 100;
+    font-size: 25px;
 }
 
 .main-photo>img {
@@ -89,7 +88,10 @@ body {
 }
 
 footer {
-    margin-top: 50px;
+    position: sticky;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
 }
 
 .footer-text {
@@ -424,10 +426,6 @@ li {
 
 /* cart */
 
-.fa-bag-shopping {
-    font-size: 25px;
-}
-
 .cart-container {
     height: 100vh;
     width: 75%;
@@ -674,13 +672,24 @@ li {
 }
 
 .register-alert {
-    color: #d03c38;
-    padding-bottom: 20px;
-    border: none;
-    text-align: justify;
-    font-size: 15px;
+    padding: 10px;
+    background-color: #f9dedc;
+    color: #8c1D18;
+    font-size: 13px;
+    margin-bottom: 10px;
 }
 
-.fa-circle-exclamation {
+.header-account-header-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.fa-user-astronaut {
+    font-size: 25px;
     margin-right: 20px;
+    position: relative;
+    color: #191919;
+    cursor: pointer;
 }

@@ -6,9 +6,11 @@ import { auth } from '../../data/firebase';
 import { GoogleLogin } from "./GoogleLogin"
 import { FacebookLogin } from "./FacebookLogin";
 import AccountSignOut from "./AccountSignOut";
+import { useLogin } from "./LoginProvider";
 
 
 export default function Register() {
+    const { login } = useLogin()
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,6 +21,7 @@ export default function Register() {
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user
+                login()
                 console.log(user)
                 navigate("/")
             })
