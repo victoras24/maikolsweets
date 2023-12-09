@@ -625,6 +625,7 @@ li {
     color: #9b4756;
     background-color: #a2657031;
     cursor: pointer;
+    padding: 15px 20px;
 }
 
 .google-login-button {
@@ -632,7 +633,6 @@ li {
     background-color: transparent;
     font-size: 16px;
     color: #993245;
-    padding: 15px 20px;
     text-align: justify;
     font-weight: 600;
     cursor: pointer;
@@ -641,7 +641,7 @@ li {
 .fa-google {
     color: #993245;
     font-size: 24px;
-    margin-right: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -652,6 +652,7 @@ li {
     color: #4267B2;
     background-color: #4267b22a;
     cursor: pointer;
+    padding: 15px 20px;
     margin-bottom: 10px;
 }
 
@@ -659,7 +660,6 @@ li {
     border: none;
     background-color: transparent;
     font-size: 16px;
-    padding: 15px 20px;
     color: #4267B2;
     text-align: justify;
     font-weight: 600;
@@ -669,7 +669,7 @@ li {
 .fa-facebook {
     color: #4267B2;
     font-size: 24px;
-    margin-right: 20px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
