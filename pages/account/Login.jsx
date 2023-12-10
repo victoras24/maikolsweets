@@ -3,16 +3,21 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../data/firebase"
+import { FacebookLogin } from "./FacebookLogin"
+import { GoogleLogin } from "./GoogleLogin"
+import { Alert } from "react-bootstrap"
 
 export default function Login() {
     const navigate = useNavigate()
-
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+    const [inputs, setInputs] = useState({
+        email: "",
+        password: ""
+    })
 
     const onLogin = (e) => {
         e.preventDefault()
-        signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, inputs.email, inputs.password)
             .then((userCredential) => {
                 const user = userCredential.user
                 navigate("/")
@@ -21,6 +26,7 @@ export default function Login() {
             .catch((error) => {
                 const errorCode = error.code
                 const errorMessage = error.message
+                setError(errorMessage)
                 console.log(errorCode, errorMessage)
             })
     }
@@ -41,24 +47,28 @@ export default function Login() {
             <div className="account-login-container">
                 <h3>LOGIN</h3>
                 <p>If you have an account please login.</p>
+                {error && <Alert className="register-alert" variant="danger"><i class="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
                 <form className="login-form">
                     <input
                         name="email"
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
                         type="email"
                         placeholder="Email address"
-                        value={email}
+                        value={inputs.email}
                     />
                     <input
                         name="password"
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
                         type="password"
                         placeholder="Password"
-                        value={password}
+                        value={inputs.password}
                     />
                     <button onClick={onLogin}>Login</button>
                 </form>
             </div>
+            <p>or</p>
+            <FacebookLogin />
+            <GoogleLogin />
         </div>
     )
 }

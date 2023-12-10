@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap"
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { GoogleLogin } from "./GoogleLogin"
 import { FacebookLogin } from "./FacebookLogin";
@@ -10,18 +10,21 @@ import { useLogin } from "./LoginProvider";
 
 
 export default function Register() {
-    const { login } = useLogin()
+    const { login, logout, isLoggedIn } = useLogin()
     const navigate = useNavigate()
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [inputs, setInputs] = useState({
+        username: "",
+        fullName: "",
+        email: "",
+        password: ""
+    })
     const [error, setError] = useState('')
 
     const authCreateAccountWithEmail = async (e) => {
         e.preventDefault()
-        await createUserWithEmailAndPassword(auth, email, password)
+        await createUserWithEmailAndPassword(auth, inputs.email, inputs.password)
             .then((userCredential) => {
                 const user = userCredential.user
-                login()
                 console.log(user)
                 navigate("/")
             })
@@ -33,6 +36,16 @@ export default function Register() {
             })
     }
 
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            login()
+            console.log(isLoggedIn)
+        } else {
+            logout()
+            console.log(isLoggedIn)
+        }
+    })
+
     return (
         <div className="account-register-container">
             <h1>
@@ -41,18 +54,32 @@ export default function Register() {
             {error && <Alert className="register-alert" variant="danger"><i class="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
             <form onSubmit={authCreateAccountWithEmail} className="login-form">
                 <input
-                    name="email"
-                    type="email"
-                    placeholder="Email address"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
+                    name="Username"
+                    type="text"
+                    placeholder="Username"
+                    onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+                    value={inputs.username}
                 />
                 <input
-                    name="password"
+                    name="Full Name"
+                    type="text"
+                    placeholder="Full Name"
+                    onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
+                    value={inputs.fullName}
+                />
+                <input
+                    name="Email"
+                    type="email"
+                    placeholder="Email Address"
+                    onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+                    value={inputs.email}
+                />
+                <input
+                    name="Password"
                     type="password"
                     placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
+                    onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+                    value={inputs.password}
                 />
                 <button
                     type="submit"

@@ -1,15 +1,14 @@
 import { getRedirectResult } from "firebase/auth";
 import { useEffect } from "react";
 import { auth, signInWithGoogleRedirect } from "../../data/firebase";
-import { useLogin } from "./LoginProvider";
+import { useLocation } from "react-router-dom";
 
 export function GoogleLogin() {
-    const { login } = useLogin()
+    const location = useLocation()
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await getRedirectResult(auth)
-                login()
                 console.log(response)
             } catch (error) {
                 console.error("Error during Google login:", error)
@@ -21,7 +20,7 @@ export function GoogleLogin() {
     return (
         <div onClick={signInWithGoogleRedirect} className="google-login-container">
             <button className="google-login-button">
-                Login with Google
+                {location.pathname === "/register" ? "Register with Google" : "Login with Google"}
             </button>
             <i className="fa fa-brands fa-google"></i>
         </div>

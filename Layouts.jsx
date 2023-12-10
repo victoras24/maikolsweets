@@ -12,6 +12,7 @@ import { CartProvider } from "./components/CartProvider"
 import { LoginProvider } from "./pages/account/LoginProvider"
 
 
+
 export default function Layouts() {
     return (
         <BrowserRouter>
