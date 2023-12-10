@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap"
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { GoogleLogin } from "./GoogleLogin"
 import { FacebookLogin } from "./FacebookLogin";
 import AccountSignOut from "./AccountSignOut";
 import { useLogin } from "./LoginProvider";
-
+import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
 
 export default function Register() {
     const { login, logout, isLoggedIn } = useLogin()
@@ -18,23 +18,21 @@ export default function Register() {
         email: "",
         password: ""
     })
-    const [error, setError] = useState('')
 
-    const authCreateAccountWithEmail = async (e) => {
-        e.preventDefault()
-        await createUserWithEmailAndPassword(auth, inputs.email, inputs.password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                console.log(user)
-                navigate("/")
-            })
-            .catch((error) => {
-                const errorCode = error.code
-                const errorMessage = error.message
-                setError(error.message)
-                console.log(errorCode, errorMessage)
-            })
-    }
+    // const authCreateAccountWithEmail = async (e) => {
+    //     e.preventDefault()
+    //     await createUserWithEmailAndPassword(auth, inputs.email, inputs.password)
+    //         .then((userCredential) => {
+    //             const user = userCredential.user
+    //             console.log(user)
+    //             navigate("/")
+    //         })
+    //         .catch((error) => {
+    //             setError(error.message)
+    //         })
+    // }
+
+    const { signup, error } = useSignUpWithEmailAndPassword()
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -51,8 +49,7 @@ export default function Register() {
             <h1>
                 Create an account
             </h1>
-            {error && <Alert className="register-alert" variant="danger"><i class="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
-            <form onSubmit={authCreateAccountWithEmail} className="login-form">
+            <div className="login-form">
                 <input
                     name="Username"
                     type="text"
@@ -83,9 +80,9 @@ export default function Register() {
                 />
                 <button
                     type="submit"
-                    onClick={authCreateAccountWithEmail}
+                    onClick={() => signup(inputs)}
                 >Register</button>
-            </form>
+            </div>
             <p>or</p>
             <FacebookLogin />
             <GoogleLogin />
