@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const ToastProvider = ({ children }) => {
     const [toasts, setToasts] = useState([])
 
-    const open = (component, timeout = 500000) => {
+    const open = (component, timeout = 5000) => {
         const id = Date.now()
         setToasts((toasts) => [...toasts, { id, component }])
         setTimeout(() => close(id), timeout)

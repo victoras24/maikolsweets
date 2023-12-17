@@ -706,6 +706,7 @@ li {
 
 .toast-error {
     display: flex;
+    font-size: 13px;
     color: #fff;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -719,7 +720,7 @@ li {
 }
 
 .toast-error i {
-    font-size: 24px;
+    font-size: 15px;
 }
 
 .toast-close-button {
