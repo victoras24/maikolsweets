@@ -16,7 +16,6 @@ const useSignUpWithEmailAndPassword = () => {
         const querySnapshot = await getDocs(q)
 
         if (!querySnapshot.empty) {
-            console.log("username exists")
             toast.openUsernameExistsError()
             return
         }
@@ -24,7 +23,7 @@ const useSignUpWithEmailAndPassword = () => {
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password)
             if (!newUser && error) {
-                console.log(error.message)
+                toast.firebaseError(error.message.replace("Firebase:", ""))
                 return
             }
             if (newUser) {
@@ -45,7 +44,7 @@ const useSignUpWithEmailAndPassword = () => {
                 navigate("/")
             }
         } catch (error) {
-            console.log(error.message)
+            toast.firebaseError(error.message.replace("Firebase:", ""))
         }
     }
 
