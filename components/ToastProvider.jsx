@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ToastContext from './Toast';
+import { motion } from 'framer-motion';
 
 const ToastProvider = ({ children }) => {
     const [toasts, setToasts] = useState([])

@@ -7,6 +7,7 @@ import AccountSignOut from "./AccountSignOut";
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
 import { useToast } from "../../components/Toast"
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function Register() {
     const { login, logout, isLoggedIn } = useLogin()
@@ -23,10 +24,28 @@ export default function Register() {
     const handleRegister = async () => {
         if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
             toast.open(
-                <div className="toast-error">
-                    <i className="fa-solid fa-circle-exclamation" />
-                    <p>Please fill all the fields</p>
-                </div>
+                <AnimatePresence>
+                    <motion.div
+                        key="error-toast"
+                        className="toast-error"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0 }}
+                        transition={{
+                            duration: 0.3,
+                            ease: [0, 0.71, 0.2, 1.01],
+                            scale: {
+                                type: 'spring',
+                                damping: 5,
+                                stiffness: 100,
+                                restDelta: 0.001,
+                            },
+                        }}
+                    >
+                        <i className="fa-solid fa-circle-exclamation" />
+                        <p>Please fill all the fields</p>
+                    </motion.div>
+                </AnimatePresence>
             )
             return
         }
