@@ -47,7 +47,7 @@ export default function Login() {
             <div className="account-login-container">
                 <h3>LOGIN</h3>
                 <p>If you have an account please login.</p>
-                {error && <Alert className="register-alert" variant="danger"><i class="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
+                {error && <Alert className="register-alert" variant="danger"><i className="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
                 <form className="login-form">
                     <input
                         name="email"

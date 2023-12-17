@@ -1,27 +1,30 @@
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from "../data/firebase";
-import { doc, setDoc } from "firebase/firestore"
+import { collection, doc, getDocs, query, setDoc, where } from "firebase/firestore"
 import { firestore } from '../data/firebase';
-import useShowToast from './useShowToast';
+import { useNavigate } from 'react-router-dom';
+import { useToast } from '../components/Toast';
 
 const useSignUpWithEmailAndPassword = () => {
-    const showToast = useShowToast();
-    const [
-        createUserWithEmailAndPassword,
-        loading,
-        error
-    ] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth)
+    const navigate = useNavigate()
+    const toast = useToast()
 
     const signup = async (inputs) => {
-        if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
-            console.log("fill")
-            showToast("Error", "Please fill all the fields", "error")
+        const usersRef = collection(firestore, "users")
+        const q = query(usersRef, where("username", "==", inputs.username))
+        const querySnapshot = await getDocs(q)
+
+        if (!querySnapshot.empty) {
+            console.log("username exists")
+            toast.openUsernameExistsError()
             return
         }
+
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password)
             if (!newUser && error) {
-                showToast("Error", error.message, "error")
+                console.log(error.message)
                 return
             }
             if (newUser) {
@@ -30,19 +33,23 @@ const useSignUpWithEmailAndPassword = () => {
                     email: inputs.email,
                     username: inputs.username,
                     fullName: inputs.fullName,
-                    savedProducts: [],
-                    orderHistory: [],
-                    createdAt: Date.now()
+                    bio: "",
+                    profilePicURL: "",
+                    followers: [],
+                    following: [],
+                    posts: [],
+                    createdAt: Date.now(),
                 }
                 await setDoc(doc(firestore, "users", newUser.user.uid), userDoc)
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
+                navigate("/")
             }
         } catch (error) {
-            showToast("Error", error.message, "error")
+            console.log(error.message)
         }
     }
 
-    return { loading, signup }
+    return { loading, error, signup }
 }
 
-export default useSignUpWithEmailAndPassword
+export default useSignUpWithEmailAndPassword;

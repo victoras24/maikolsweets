@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Alert } from "react-bootstrap"
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { GoogleLogin } from "./GoogleLogin"
@@ -8,10 +6,10 @@ import { FacebookLogin } from "./FacebookLogin";
 import AccountSignOut from "./AccountSignOut";
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
+import { useToast } from "../../components/Toast"
 
 export default function Register() {
     const { login, logout, isLoggedIn } = useLogin()
-    const navigate = useNavigate()
     const [inputs, setInputs] = useState({
         username: "",
         fullName: "",
@@ -19,37 +17,41 @@ export default function Register() {
         password: ""
     })
 
-    // const authCreateAccountWithEmail = async (e) => {
-    //     e.preventDefault()
-    //     await createUserWithEmailAndPassword(auth, inputs.email, inputs.password)
-    //         .then((userCredential) => {
-    //             const user = userCredential.user
-    //             console.log(user)
-    //             navigate("/")
-    //         })
-    //         .catch((error) => {
-    //             setError(error.message)
-    //         })
-    // }
-
     const { signup, error } = useSignUpWithEmailAndPassword()
+    const toast = useToast()
 
-    onAuthStateChanged(auth, (user) => {
-        if (user) {
-            login()
-            console.log(isLoggedIn)
-        } else {
-            logout()
-            console.log(isLoggedIn)
+    const handleRegister = async () => {
+        if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
+            toast.open(
+                <div className="toast-error">
+                    <i className="fa-solid fa-circle-exclamation" />
+                    <p>Please fill all the fields</p>
+                </div>
+            )
+            return
         }
-    })
+
+        try {
+            await signup(inputs)
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    login()
+                    console.log(isLoggedIn)
+                } else {
+                    logout()
+                    console.log(isLoggedIn)
+                }
+            })
+        } catch (error) {
+            console.error("Registration failed:", error.message)
+        }
+    }
 
     return (
         <div className="account-register-container">
-            <h1>
-                Create an account
-            </h1>
-            <div className="login-form">
+            <h1>Create an account</h1>
+            <form className="login-form">
                 <input
                     name="Username"
                     type="text"
@@ -80,9 +82,12 @@ export default function Register() {
                 />
                 <button
                     type="submit"
-                    onClick={() => signup(inputs)}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        handleRegister()
+                    }}
                 >Register</button>
-            </div>
+            </form>
             <p>or</p>
             <FacebookLogin />
             <GoogleLogin />
