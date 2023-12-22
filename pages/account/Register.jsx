@@ -5,9 +5,8 @@ import { GoogleLogin } from "./GoogleLogin"
 import { FacebookLogin } from "./FacebookLogin";
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
-import { useToast } from "../../components/Toast"
-import { AnimatePresence, motion } from "framer-motion"
 import useLogout from "../../hooks/useLogout"
+import { toast } from "sonner"
 
 export default function Register() {
     const { login, logout, isLoggedIn } = useLogin()
@@ -20,51 +19,29 @@ export default function Register() {
     })
 
     const { signup, error } = useSignUpWithEmailAndPassword()
-    const toast = useToast()
 
     const handleRegister = async () => {
         if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
-            toast.open(
-                <AnimatePresence>
-                    <motion.div
-                        key="error-toast"
-                        className="toast-error"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0 }}
-                        transition={{
-                            duration: 0.3,
-                            ease: [0, 0.71, 0.2, 1.01],
-                            scale: {
-                                type: 'spring',
-                                damping: 5,
-                                stiffness: 100,
-                                restDelta: 0.001,
-                            },
-                        }}
-                    >
-                        <i className="fa-solid fa-circle-exclamation" />
-                        <p>Please fill all the fields</p>
-                    </motion.div>
-                </AnimatePresence>
-            )
+            toast.error('Please fill in all fields')
             return
         }
 
         try {
             await signup(inputs)
 
-            onAuthStateChanged(auth, (user) => {
+            onAuthStateChanged(auth, async (user) => {
                 if (user) {
-                    login()
+                    await login()
                     console.log(isLoggedIn)
+                    toast.success("Logged in")
                 } else {
-                    logout()
+                    await logout()
                     console.log(isLoggedIn)
+                    toast.success("Logged out")
                 }
             })
         } catch (error) {
-            console.error("Registration failed:", error.message)
+            toast.error("Registration failed. Please try again.")
         }
     }
 

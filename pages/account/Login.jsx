@@ -6,6 +6,7 @@ import { auth } from "../../data/firebase"
 import { FacebookLogin } from "./FacebookLogin"
 import { GoogleLogin } from "./GoogleLogin"
 import { Alert } from "react-bootstrap"
+import { toast } from "sonner"
 
 export default function Login() {
     const navigate = useNavigate()
@@ -22,12 +23,14 @@ export default function Login() {
                 const user = userCredential.user
                 navigate("/")
                 console.log(user)
+                toast.success(`${user.email.split('@')[0]} has logged in`)
             })
             .catch((error) => {
                 const errorCode = error.code
                 const errorMessage = error.message
                 setError(errorMessage)
                 console.log(errorCode, errorMessage)
+                toast.error("Please try again")
             })
     }
 

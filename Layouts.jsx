@@ -10,31 +10,27 @@ import Contact from "./pages/Contact"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { CartProvider } from "./components/CartProvider"
 import { LoginProvider } from "./pages/account/LoginProvider"
-import { ToastProvider } from "./components/ToastProvider"
-
-
-
+import { Toaster } from "sonner"
 
 export default function Layouts() {
     return (
         <BrowserRouter>
-            <ToastProvider>
-                <LoginProvider>
-                    <CartProvider>
-                        <Routes>
-                            <Route path="/" element={<Layout />}>
-                                <Route index element={<Home />} />
-                                <Route path="products" element={<Products />} />
-                                <Route path="products/:id" element={<ProductDetail />} />
-                                <Route path="about" element={<About />} />
-                                <Route path="login" element={<Login />} />
-                                <Route path="register" element={<Register />} />
-                                <Route path="contact" element={<Contact />} />
-                            </Route>
-                        </Routes>
-                    </CartProvider>
-                </LoginProvider>
-            </ToastProvider>
+            <Toaster richColors position="bottom-center" />
+            <LoginProvider>
+                <CartProvider>
+                    <Routes>
+                        <Route path="/" element={<Layout />}>
+                            <Route index element={<Home />} />
+                            <Route path="products" element={<Products />} />
+                            <Route path="products/:id" element={<ProductDetail />} />
+                            <Route path="about" element={<About />} />
+                            <Route path="login" element={<Login />} />
+                            <Route path="register" element={<Register />} />
+                            <Route path="contact" element={<Contact />} />
+                        </Route>
+                    </Routes>
+                </CartProvider>
+            </LoginProvider>
         </BrowserRouter>
     )
 }

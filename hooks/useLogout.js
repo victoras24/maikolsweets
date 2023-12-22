@@ -1,6 +1,7 @@
 import { auth } from "../data/firebase"
 import { useSignOut } from "react-firebase-hooks/auth"
 import { useState } from "react"
+import { toast } from "sonner"
 
 const useLogout = () => {
 
@@ -10,7 +11,7 @@ const useLogout = () => {
         try {
             await signOut()
             localStorage.removeItem('user-info')
-            console.log("Logged out")
+            toast.success("User logged out")
         } catch (error) {
             setLogoutError(error.message)
         }
