@@ -1,38 +1,18 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { signInWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../../data/firebase"
-import { FacebookLogin } from "./FacebookLogin"
-import { GoogleLogin } from "./GoogleLogin"
+// import { FacebookLogin } from "./FacebookLogin"
+// import { GoogleLogin } from "./GoogleLogin"
 import { Alert } from "react-bootstrap"
-import { toast } from "sonner"
+import { useLogin } from "../../hooks/useLogin"
+import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
 
 export default function Login() {
-    const navigate = useNavigate()
-    const [error, setError] = useState('')
+    const { googleLogin } = useLoginWithGoogle()
+    const { login, error } = useLogin()
     const [inputs, setInputs] = useState({
         email: "",
         password: ""
     })
-
-    const onLogin = (e) => {
-        e.preventDefault()
-        signInWithEmailAndPassword(auth, inputs.email, inputs.password)
-            .then((userCredential) => {
-                const user = userCredential.user
-                navigate("/")
-                console.log(user)
-                toast.success(`${user.email.split('@')[0]} has logged in`)
-            })
-            .catch((error) => {
-                const errorCode = error.code
-                const errorMessage = error.message
-                setError(errorMessage)
-                console.log(errorCode, errorMessage)
-                toast.error("Please try again")
-            })
-    }
 
     return (
         <div className="account-container">
@@ -50,7 +30,7 @@ export default function Login() {
             <div className="account-login-container">
                 <h3>LOGIN</h3>
                 <p>If you have an account please login.</p>
-                {error && <Alert className="register-alert" variant="danger"><i className="fa-solid fa-circle-exclamation"></i> {error.replace("Firebase:", "")}</Alert>}
+                {error && <Alert className="register-alert" variant="danger"><i className="fa-solid fa-circle-exclamation"></i> {error.message.replace("Firebase:", "")}</Alert>}
                 <form className="login-form">
                     <input
                         name="email"
@@ -66,12 +46,21 @@ export default function Login() {
                         placeholder="Password"
                         value={inputs.password}
                     />
-                    <button onClick={onLogin}>Login</button>
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        login(inputs)
+                    }}>Login</button>
                 </form>
             </div>
             <p>or</p>
-            <FacebookLogin />
-            <GoogleLogin />
+            <div onClick={googleLogin} className="google-login-container">
+                <button className="google-login-button">
+                    {location.pathname === "/register" ? "Register with Google" : "Login with Google"}
+                </button>
+                <i className="fa-brands fa-google"></i>
+            </div>
+            {/* <FacebookLogin />
+            <GoogleLogin /> */}
         </div>
     )
 }

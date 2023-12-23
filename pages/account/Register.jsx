@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
-import { GoogleLogin } from "./GoogleLogin"
-import { FacebookLogin } from "./FacebookLogin";
+// import { GoogleLogin } from "./GoogleLogin"
+// import { FacebookLogin } from "./FacebookLogin";
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
 import useLogout from "../../hooks/useLogout"
 import { toast } from "sonner"
 
 export default function Register() {
-    const { login, logout, isLoggedIn } = useLogin()
-    const { handleLogout } = useLogout()
+    const { login } = useLogin()
+    const { handleLogout, isLoggingOut } = useLogout()
     const [inputs, setInputs] = useState({
         username: "",
         fullName: "",
@@ -18,7 +18,7 @@ export default function Register() {
         password: ""
     })
 
-    const { signup, error } = useSignUpWithEmailAndPassword()
+    const { signup } = useSignUpWithEmailAndPassword()
 
     const handleRegister = async () => {
         if (!inputs.email || !inputs.password || !inputs.username || !inputs.fullName) {
@@ -32,11 +32,11 @@ export default function Register() {
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
                     await login()
-                    console.log(isLoggedIn)
+                    console.log(isLoggingOut)
                     toast.success("Logged in")
                 } else {
                     await logout()
-                    console.log(isLoggedIn)
+                    console.log(isLoggingOut)
                     toast.success("Logged out")
                 }
             })
@@ -86,8 +86,8 @@ export default function Register() {
                 >Register</button>
             </form>
             <p>or</p>
-            <FacebookLogin />
-            <GoogleLogin />
+            {/* <FacebookLogin />
+            <GoogleLogin /> */}
             <button onClick={() => handleLogout()}>
                 logout
             </button>
