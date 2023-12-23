@@ -20,11 +20,11 @@
 //     }, [navigate])
 
 //     return (
-//         <div onClick={signInWithFacebookRedirect} className="facebook-login-container">
-//             <button className="facebook-login-button">
-//                 {location.pathname === "/register" ? "Register with Facebook" : "Login with Facebook"}
-//             </button>
-//             <i className="fa fa-brands fa-facebook"></i>
-//         </div>
+        // <div onClick={signInWithFacebookRedirect} className="facebook-login-container">
+        //     <button className="facebook-login-button">
+        //         {location.pathname === "/register" ? "Register with Facebook" : "Login with Facebook"}
+        //     </button>
+        //     <i className="fa fa-brands fa-facebook"></i>
+        // </div>
 //     );
 // }

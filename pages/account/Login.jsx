@@ -5,8 +5,10 @@ import { Link } from "react-router-dom"
 import { Alert } from "react-bootstrap"
 import { useLogin } from "../../hooks/useLogin"
 import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
+import { useLoginWithFacebook } from "../../hooks/useLoginWithFacebook"
 
 export default function Login() {
+    const { facebookLogin } = useLoginWithFacebook()
     const { googleLogin } = useLoginWithGoogle()
     const { login, error } = useLogin()
     const [inputs, setInputs] = useState({
@@ -53,12 +55,19 @@ export default function Login() {
                 </form>
             </div>
             <p>or</p>
+            <div onClick={facebookLogin} className="facebook-login-container">
+                <button className="facebook-login-button">
+                    {location.pathname === "/register" ? "Register with Facebook" : "Login with Facebook"}
+                </button>
+                <i className="fa fa-brands fa-facebook"></i>
+            </div>
             <div onClick={googleLogin} className="google-login-container">
                 <button className="google-login-button">
                     {location.pathname === "/register" ? "Register with Google" : "Login with Google"}
                 </button>
                 <i className="fa-brands fa-google"></i>
             </div>
+
             {/* <FacebookLogin />
             <GoogleLogin /> */}
         </div>
