@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
-// import { GoogleLogin } from "./GoogleLogin"
-// import { FacebookLogin } from "./FacebookLogin";
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
 import useLogout from "../../hooks/useLogout"
 import { toast } from "sonner"
+import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
+import { useLoginWithFacebook } from "../../hooks/useLoginWithFacebook"
 
 export default function Register() {
+    const { facebookLogin } = useLoginWithFacebook()
+    const { googleLogin } = useLoginWithGoogle()
     const { login } = useLogin()
     const { handleLogout, isLoggingOut } = useLogout()
     const [inputs, setInputs] = useState({
@@ -86,8 +88,18 @@ export default function Register() {
                 >Register</button>
             </form>
             <p>or</p>
-            {/* <FacebookLogin />
-            <GoogleLogin /> */}
+            <div onClick={facebookLogin} className="facebook-login-container">
+                <button className="facebook-login-button">
+                    Register with Facebook
+                </button>
+                <i className="fa fa-brands fa-facebook"></i>
+            </div>
+            <div onClick={googleLogin} className="google-login-container">
+                <button className="google-login-button">
+                    Register with Google
+                </button>
+                <i className="fa-brands fa-google"></i>
+            </div>
             <button onClick={() => handleLogout()}>
                 logout
             </button>

@@ -1,7 +1,5 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-// import { FacebookLogin } from "./FacebookLogin"
-// import { GoogleLogin } from "./GoogleLogin"
 import { Alert } from "react-bootstrap"
 import { useLogin } from "../../hooks/useLogin"
 import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
@@ -67,9 +65,6 @@ export default function Login() {
                 </button>
                 <i className="fa-brands fa-google"></i>
             </div>
-
-            {/* <FacebookLogin />
-            <GoogleLogin /> */}
         </div>
     )
 }
