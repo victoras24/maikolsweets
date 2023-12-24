@@ -12,7 +12,7 @@ export default function Register() {
     const { facebookLogin } = useLoginWithFacebook()
     const { googleLogin } = useLoginWithGoogle()
     const { login } = useLogin()
-    const { handleLogout, isLoggingOut } = useLogout()
+    const { handleLogout } = useLogout()
     const [inputs, setInputs] = useState({
         username: "",
         fullName: "",
@@ -30,15 +30,12 @@ export default function Register() {
 
         try {
             await signup(inputs)
-
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
                     await login()
-                    console.log(isLoggingOut)
                     toast.success("Logged in")
                 } else {
                     await logout()
-                    console.log(isLoggingOut)
                     toast.success("Logged out")
                 }
             })

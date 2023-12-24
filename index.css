@@ -693,3 +693,13 @@ li {
     color: #191919;
     cursor: pointer;
 }
+
+/* user */
+
+.user-photo {
+    width: 29px;
+    border-radius: 100%;
+    margin-right: 20px;
+    position: relative;
+    margin-top: 5px;
+}

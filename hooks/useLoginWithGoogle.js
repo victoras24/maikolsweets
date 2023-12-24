@@ -17,7 +17,6 @@ export const useLoginWithGoogle = () => {
                 return
             }
             if (newUser) {
-                console.log(newUser.user)
                 const userDoc = {
                     uid: newUser.user.uid,
                     email: newUser.user.email,

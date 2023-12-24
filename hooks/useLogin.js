@@ -2,10 +2,12 @@ import { auth, firestore } from "../data/firebase";
 import { toast } from "sonner";
 import { doc, getDoc } from "firebase/firestore";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-
+import { useAuth } from "../components/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
-
+    const { userLogin } = useAuth()
+    const navigate = useNavigate()
     const [
         signInWithEmailAndPassword,
         user,
@@ -26,8 +28,9 @@ export const useLogin = () => {
                 const docRef = doc(firestore, "users", userCred.user.uid)
                 const docSnap = await getDoc(docRef)
                 localStorage.setItem("user-info", JSON.stringify(docSnap.data()))
+                userLogin(docSnap.data())
+                navigate("/")
                 toast.success(`${userCred.user.email.split('@')[0]} has logged in`)
-                // login user state auth store
             }
 
         } catch (error) {
