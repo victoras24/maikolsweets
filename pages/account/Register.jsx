@@ -3,7 +3,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../data/firebase';
 import { useLogin } from "./LoginProvider";
 import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword"
-import useLogout from "../../hooks/useLogout"
 import { toast } from "sonner"
 import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
 import { useLoginWithFacebook } from "../../hooks/useLoginWithFacebook"
@@ -12,7 +11,6 @@ export default function Register() {
     const { facebookLogin } = useLoginWithFacebook()
     const { googleLogin } = useLoginWithGoogle()
     const { login } = useLogin()
-    const { handleLogout } = useLogout()
     const [inputs, setInputs] = useState({
         username: "",
         fullName: "",
@@ -97,9 +95,6 @@ export default function Register() {
                 </button>
                 <i className="fa-brands fa-google"></i>
             </div>
-            <button onClick={() => handleLogout()}>
-                logout
-            </button>
         </div>
     )
 }

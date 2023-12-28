@@ -9,7 +9,7 @@ import { useAuth } from '../components/AuthProvider';
 const useSignUpWithEmailAndPassword = () => {
     const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth)
     const navigate = useNavigate()
-    const { login, logout } = useAuth()
+    const { useLogin, logout } = useAuth()
 
     const signup = async (inputs) => {
         const usersRef = collection(firestore, "users")
@@ -40,7 +40,7 @@ const useSignUpWithEmailAndPassword = () => {
                 }
                 await setDoc(doc(firestore, "users", newUser.user.uid), userDoc)
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
-                login(userDoc)
+                useLogin(userDoc)
                 navigate("/")
             }
         } catch (error) {

@@ -1,12 +1,14 @@
 import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 import { auth } from "../data/firebase";
 import { toast } from "sonner";
-import { doc, setDoc } from "firebase/firestore"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 import { firestore } from '../data/firebase';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../components/AuthProvider";
 
 export const useLoginWithFacebook = () => {
     const navigate = useNavigate()
+    const { userLogin } = useAuth()
     const [signInWithFacebook, error] = useSignInWithFacebook(auth);
 
     const facebookLogin = async () => {
@@ -16,8 +18,18 @@ export const useLoginWithFacebook = () => {
                 toast.error(error.message)
                 return
             }
-            if (newUser) {
-                console.log(newUser.user)
+
+            const userRef = doc(firestore, "users", newUser.user.uid)
+            const userSnap = await getDoc(userRef)
+
+            if (userSnap.exists()) {
+                //login
+                const userDoc = userSnap.data()
+                localStorage.setItem("user-info", JSON.stringify(userDoc))
+                userLogin(userDoc)
+
+            } else {
+                //signup
                 const userDoc = {
                     uid: newUser.user.uid,
                     email: newUser.user.email,
@@ -30,6 +42,7 @@ export const useLoginWithFacebook = () => {
                 }
                 await setDoc(doc(firestore, "users", newUser.user.uid), userDoc)
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
+                userLogin(userDoc)
                 navigate("/")
             }
         } catch (error) {

@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
 import { useCart } from "./CartProvider";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../data/firebase"
 
 export default function Navbar() {
+    const [authUser] = useAuthState(auth)
     const { openCart } = useCart()
     const [show, setShow] = useState(false)
     const location = useLocation()
@@ -114,7 +117,7 @@ export default function Navbar() {
 
                             <NavLink
                                 className="nav-item"
-                                to="login"
+                                to={authUser ? "dashboard" : "login"}
                                 style={({ isActive }) => isActive ? activeStyles : null}
                             >MY ACCOUNT
                             </NavLink>

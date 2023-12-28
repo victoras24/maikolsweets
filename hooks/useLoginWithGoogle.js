@@ -1,12 +1,14 @@
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "../data/firebase";
 import { toast } from "sonner";
-import { doc, setDoc } from "firebase/firestore"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 import { firestore } from '../data/firebase';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../components/AuthProvider";
 
 export const useLoginWithGoogle = () => {
     const navigate = useNavigate()
+    const { userLogin } = useAuth()
     const [signInWithGoogle, error] = useSignInWithGoogle(auth);
 
     const googleLogin = async () => {
@@ -16,7 +18,17 @@ export const useLoginWithGoogle = () => {
                 toast.error(error.message)
                 return
             }
-            if (newUser) {
+
+            const userRef = doc(firestore, "users", newUser.user.uid)
+            const userSnap = await getDoc(userRef)
+
+            if (userSnap.exists()) {
+                //login
+                const userDoc = userSnap.data()
+                localStorage.setItem("user-info", JSON.stringify(userDoc))
+                userLogin(userDoc)
+            } else {
+                //signup
                 const userDoc = {
                     uid: newUser.user.uid,
                     email: newUser.user.email,
@@ -29,9 +41,11 @@ export const useLoginWithGoogle = () => {
                 }
                 await setDoc(doc(firestore, "users", newUser.user.uid), userDoc)
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
+                userLogin(userDoc)
                 navigate("/")
             }
-        } catch (error) {
+        }
+        catch (error) {
             toast.error(error.message)
             console.log(error.message)
         }

@@ -5,9 +5,12 @@ import logoImage from "../assets/site-logo.png"
 import Navbar from "./Navbar";
 import Cart from "./Cart";
 import { useAuth } from "./AuthProvider";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from "../data/firebase"
 
 export default function Header() {
 
+    const [authUser] = useAuthState(auth)
     const { user } = useAuth()
     const [visible, setVisible] = useState(false)
     const { scrollY } = useScroll()
@@ -43,7 +46,7 @@ export default function Header() {
                         )}
                     </NavLink>
                 ) : (
-                    <NavLink to="/login">
+                    <NavLink to={authUser ? "/dashboard" : "/login"}>
                         <i className="fa-solid fa-user-astronaut"></i>
                     </NavLink>
                 )}

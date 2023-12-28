@@ -703,3 +703,25 @@ li {
     position: relative;
     margin-top: 5px;
 }
+
+.account-profile-container {
+    padding: 10px;
+}
+
+.account-profile-list {
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.logout-button {
+    text-align: center;
+    padding: 5px 20px;
+    background: #ffe88d;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+}
