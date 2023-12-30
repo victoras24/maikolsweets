@@ -6,6 +6,9 @@ import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPass
 import { toast } from "sonner"
 import { useLoginWithGoogle } from "../../hooks/useLoginWithGoogle"
 import { useLoginWithFacebook } from "../../hooks/useLoginWithFacebook"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
 
 export default function Register() {
     const { facebookLogin } = useLoginWithFacebook()
@@ -44,6 +47,14 @@ export default function Register() {
 
     return (
         <div className="account-register-container">
+            <Link
+                to="/login"
+                relative="path"
+                className="back-button"
+            >
+                <FontAwesomeIcon className="back-button-icon" icon={faAngleLeft} />
+                <p className="back-button-text">Login</p>
+            </Link>
             <h1>Create an account</h1>
             <form className="login-form">
                 <input
@@ -82,7 +93,7 @@ export default function Register() {
                     }}
                 >Register</button>
             </form>
-            <p>or</p>
+            <p className="account-register-or">or</p>
             <div onClick={facebookLogin} className="facebook-login-container">
                 <button className="facebook-login-button">
                     Register with Facebook

@@ -17,25 +17,19 @@ export default function ProductDetail() {
     const clickedProduct = products.find((product) => product.id === Number(id))
 
     return (
-        <div className="product-detail-container">
-            <Link
-                to={`..${search}`}
-                relative="path"
-                className="back-button"
-            >
-                <FontAwesomeIcon className="back-button-icon" icon={faAngleLeft} />
-                <p> {type.charAt(0).toUpperCase() + type.slice(1)} products </p>
-            </Link>
-            {
-                clickedProduct &&
-                (
+
+        clickedProduct &&
+
+        (<div className="product-detail-container">
+            <div className="product-detail-img-container">
+                <img className="product-detail-img" src={clickedProduct.image} alt="clickedProduct image" />
+                <Link to={`..${search}`} relative="path" className="back-button">
+                    <FontAwesomeIcon className="back-button-icon" icon={faAngleLeft} />
+                    <p> {type.charAt(0).toUpperCase() + type.slice(1)} products </p>
+                </Link>
+                <div className="overlay">
                     <div className="product-detail">
-                        <div className="product-detail-img-container">
-                            <img className="product-detail-img" src={clickedProduct.image} alt="clickedProduct image" />
-                        </div>
-                        <i
-                            className={`clickedProduct-type ${clickedProduct.type} selected`}
-                        >
+                        <i className={`clickedProduct-type ${clickedProduct.type} selected`}>
                             {clickedProduct.type}
                         </i>
                         <h2>{clickedProduct.name}</h2>
@@ -45,8 +39,10 @@ export default function ProductDetail() {
                             <button className="add-to-cart-button" onClick={() => addToCart(clickedProduct)}>Add to cart</button>
                         </div>
                     </div>
-                )
-            }
+                </div>
+            </div>
         </div>
+
+        )
     )
 }
