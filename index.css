@@ -331,14 +331,11 @@ li {
 .product-detail-container {
     display: flex;
     justify-content: center;
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
+    height: 100vh;
 }
 
 .product-detail-img-container {
     position: relative;
-    overflow: hidden;
 }
 
 .product-detail-img {
