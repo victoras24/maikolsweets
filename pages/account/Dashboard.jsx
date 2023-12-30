@@ -11,8 +11,8 @@ export default function Dashboard() {
             <h1>Account dashboard</h1>
             <h3>Account details</h3>
             <ul className="account-profile-list">
-                <li>Name: {user?.fullName}</li>
-                <li>Email: {user?.email}</li>
+                <li>Name: {user?.fullName || "Guest"}</li>
+                <li>Email: {user?.email || "Email"} </li>
                 <li>Address:</li>
                 <li>Country:</li>
                 <li>Zip:</li>
@@ -20,12 +20,13 @@ export default function Dashboard() {
             </ul>
             <div>
                 <h3>Order History</h3>
-                {user.orderHistory.length === 0 ? (
+                {user?.orderHistory.length === 0 ? (
                     <div>
                         <p>You haven't placed any orders yet.</p>
                     </div>
                 ) : (
-                    user.orderHistory.map((order, index) => (
+                    //change
+                    user?.orderHistory.map((order, index) => (
                         <li
                             key={index}
                         >

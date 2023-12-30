@@ -1,6 +1,8 @@
 import { Link, useLocation, useParams } from "react-router-dom"
 import productsData from "../../data/products.json"
 import { useCart } from "../../components/CartProvider"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons"
 
 export default function ProductDetail() {
     const { addToCart } = useCart()
@@ -21,7 +23,8 @@ export default function ProductDetail() {
                 relative="path"
                 className="back-button"
             >
-                &larr; <span> Back to {type} products </span>
+                <FontAwesomeIcon className="back-button-icon" icon={faAngleLeft} />
+                <p> {type.charAt(0).toUpperCase() + type.slice(1)} products </p>
             </Link>
             {
                 clickedProduct &&

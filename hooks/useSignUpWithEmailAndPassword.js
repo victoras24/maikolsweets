@@ -9,7 +9,7 @@ import { useAuth } from '../components/AuthProvider';
 const useSignUpWithEmailAndPassword = () => {
     const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth)
     const navigate = useNavigate()
-    const { useLogin, logout } = useAuth()
+    const { useLogin } = useAuth()
 
     const signup = async (inputs) => {
         const usersRef = collection(firestore, "users")
