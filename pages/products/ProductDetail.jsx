@@ -27,7 +27,7 @@ export default function ProductDetail() {
                     <FontAwesomeIcon className="back-button-icon" icon={faAngleLeft} />
                     <p> {type.charAt(0).toUpperCase() + type.slice(1)} products </p>
                 </Link>
-                <div className="overlay">
+                <div className="product-detail-overlay">
                     <div className="product-detail">
                         <i className={`clickedProduct-type ${clickedProduct.type} selected`}>
                             {clickedProduct.type}

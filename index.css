@@ -337,6 +337,7 @@ li {
 }
 
 .product-detail-img-container {
+    position: relative;
     overflow: hidden;
 }
 
@@ -345,12 +346,12 @@ li {
     display: block;
 }
 
-.overlay {
+.product-detail-overlay {
     position: absolute;
     top: 50%;
-    left: 0;
-    width: 100%;
-    height: 500px;
+    left: 15%;
+    width: 70%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -372,7 +373,7 @@ li {
 .product-detail {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 60px;
+    border-radius: 50px;
     padding: 30px;
     z-index: 1;
 }
