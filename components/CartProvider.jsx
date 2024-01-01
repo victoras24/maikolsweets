@@ -1,7 +1,7 @@
-// CartProvider.js
-import { useState, createContext, useContext } from "react";
 
-const CartContext = createContext();
+import { useState, createContext, useContext } from "react"
+
+const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([])
@@ -43,16 +43,16 @@ export const CartProvider = ({ children }) => {
             })
 
             return updatedCartItems.filter((item) => item !== null)
-        });
-    };
+        })
+    }
 
     return (
         <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, openCart, toggle, setOpenCart }}>
             {children}
         </CartContext.Provider>
-    );
-};
+    )
+}
 
 export const useCart = () => {
-    return useContext(CartContext);
-};
+    return useContext(CartContext)
+}

@@ -25,7 +25,7 @@ export default function ProductDetail() {
 
     const handleQuantityChange = (e) => {
         const value = parseInt(e.target.value, 10)
-        setQuantity(value > 0 ? value : 1)
+        setQuantity(value > 0 ? value : 0)
     }
 
     const handleAddToCart = () => {
@@ -58,7 +58,7 @@ export default function ProductDetail() {
                                 </button>
                                 <input
                                     className="product-detail-quantity"
-                                    type="number"
+                                    type="text"
                                     id="quantity"
                                     name="quantity"
                                     min="1"
