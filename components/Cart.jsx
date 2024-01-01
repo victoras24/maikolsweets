@@ -84,7 +84,10 @@ export default function Cart() {
                                                     <div className="cart-item-container">
                                                         <img className="cart-item-image" src={item.image} />
                                                         <div className="cart-item-name-price">
-                                                            <p>{item.name}</p>
+                                                            <p>
+                                                                {item.name}{" "}
+                                                                {item.quantity > 1 && `x${item.quantity}`}
+                                                            </p>
                                                             <p className="cart-item-price">€{item.price}</p>
                                                         </div>
                                                         <i className="fa fa-thin fa-trash-can" onClick={() => removeFromCart(item.id)}></i>
