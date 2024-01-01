@@ -219,12 +219,21 @@ footer {
     width: 150px;
     height: 200px;
     border-radius: 5px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .product-name,
 .product-price {
     color: #4F200D;
     margin: 0;
+}
+
+.product-name {
+    font-size: 16px;
+}
+
+.product-price {
+    font-size: 13px;
 }
 
 
@@ -234,9 +243,10 @@ footer {
     left: 5px;
     background-color: #4F200D;
     padding: 3px 6px;
-    border-radius: 2px;
+    border-radius: 8px;
     font-weight: bold;
     color: #fffcf7;
+    font-size: 13px;
 }
 
 /* Product type select */
