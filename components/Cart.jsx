@@ -46,7 +46,7 @@ export default function Cart() {
 
     return (
         <div>
-            <i className="fa fa-bag-shopping" onClick={toggle} />
+            <i className="fa-brands fa-opencart fa-bag-shopping" onClick={toggle} />
             {cartItems.length === 0 ? null : <span className="badge-cart" onClick={toggle}>{cartItems.length}</span>}
             <AnimatePresence>
                 {openCart && (
@@ -90,13 +90,18 @@ export default function Cart() {
                                                             </p>
                                                             <p className="cart-item-price">€{item.price}</p>
                                                         </div>
-                                                        <i className="fa fa-thin fa-trash-can" onClick={() => removeFromCart(item.id)}></i>
+                                                        <i className="fa fa-thin fa-trash-can" onClick={() => removeFromCart(item.id)} />
                                                     </div>
                                                 </li>
                                             ))
                                         )}
                                     </ul>
                                 </div>
+                                {cartItems.length > 0 && (
+                                    <div className="cart-total">
+                                        <p>Total: €{cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
+                                    </div>
+                                )}
                             </motion.div>
                         </motion.div>
                     </div>

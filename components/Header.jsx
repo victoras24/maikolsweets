@@ -8,6 +8,7 @@ import { useAuth } from "./AuthProvider";
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "../data/firebase"
 
+
 export default function Header() {
 
     const [authUser] = useAuthState(auth)

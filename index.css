@@ -49,7 +49,7 @@ body {
     color: #191919;
     text-align: center;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .main-photo>img {
@@ -398,7 +398,7 @@ li {
     align-items: flex-end;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 50px;
-    padding: 30px;
+    padding: 20px;
     z-index: 1;
     height: auto;
     width: 350px;
@@ -553,6 +553,10 @@ li {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fa-trash-can {
+    font-size: 20px;
 }
 
 .fa-xmark {
