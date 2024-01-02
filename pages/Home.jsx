@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom"
-import mainImage from "../assets/main-photo.jpg"
 
 export default function Home() {
 
     return (
-        <div className="main-photo">
-            <img src="https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="main photo" />
-            <div className="main-photo-text">
-                <h2 className="main-title">Welcome to <br />Maikol Sweets!</h2>
-                <h3>Discover the Sweet Side of Life</h3>
+        <>
+            <div className="main-photo">
+                <img className="main-photo-img" src="https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="main photo" />
+                <div className="main-photo-text">
+                    <h2 className="main-title">Welcome to Maikol Sweets</h2>
+                    <h3>Discover the Sweet Side of Life</h3>
+                    <div className="main-photo-links">
+                        <Link className="main-photo-about-link" to="about">About us <i className="fa-solid fa-chevron-right"></i></Link>
+                        <Link className="main-photo-product-link" to="products">Products <i class="fa-solid fa-chevron-right"></i></Link>
+                    </div>
+                </div>
             </div>
             <div className="intro-text">
                 <p>
@@ -29,9 +34,9 @@ export default function Home() {
                 </p>
             </div>
             <div className="main-button-container">
-                <Link to="products"><button className="main-button">View our Products</button></Link>
-            </div>
 
-        </div>
+            </div>
+        </>
     )
 }
+

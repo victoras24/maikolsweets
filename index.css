@@ -69,18 +69,33 @@ body {
 }
 
 .main-photo-text h3 {
-    font-size: 19px;
+    font-size: 15px;
     line-height: 1.21053;
     font-weight: 400;
-    letter-spacing: 0em;
+    letter-spacing: 0.15rem;
     margin: 0;
 }
 
 .main-title {
     flex-grow: 0;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 1.125;
+    letter-spacing: 0.1rem;
     font-weight: 600;
+    white-space: nowrap;
+}
+
+.main-photo-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    position: relative;
+    margin-top: 50px;
 }
 
 .main-wrapper {
@@ -97,6 +112,22 @@ body {
     margin: 2.4rem;
     display: flex;
     justify-content: center;
+}
+
+.main-photo-product-link,
+.main-photo-about-link {
+    text-align: center;
+    text-decoration: none;
+    color: #aaaaaa;
+    /* background-color: grey;
+    padding: 5px 10px;
+    border-radius: 20px;
+    */
+}
+
+.fa-chevron-right {
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 .main-button {
