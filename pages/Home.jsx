@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function Home() {
 
     return (
-        <>
+        <div className="home-page-main-wrapper">
             <div className="main-photo">
                 <img className="main-photo-img" src="https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="main photo" />
                 <div className="main-photo-text">
@@ -36,7 +36,7 @@ export default function Home() {
             <div className="main-button-container">
 
             </div>
-        </>
+        </div>
     )
 }
 
