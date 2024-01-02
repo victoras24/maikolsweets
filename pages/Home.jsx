@@ -5,9 +5,12 @@ export default function Home() {
 
     return (
         <div className="main-photo">
-            <img src={mainImage} alt="main photo" />
+            <img src="https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="main photo" />
+            <div className="main-photo-text">
+                <h2 className="main-title">Welcome to <br />Maikol Sweets!</h2>
+                <h3>Discover the Sweet Side of Life</h3>
+            </div>
             <div className="intro-text">
-                <h1>Welcome to <br />Maikol Sweets!</h1>
                 <p>
                     Indulge in the exquisite world of homemade sweets crafted with love and passion.
                     At Maikol Sweets, we take pride in creating delectable treats that not only
