@@ -25,7 +25,7 @@ export default function Navbar() {
         position: "fixed",
         top: "0",
         left: "0",
-        backgroundColor: "#FFD93D",
+        backgroundColor: "#fffcf7",
     }
 
     const menuVariants = {
@@ -57,7 +57,6 @@ export default function Navbar() {
 
     const activeStyles = {
         textDecoration: "underline",
-        color: "#f1f1f1"
     }
 
     return (

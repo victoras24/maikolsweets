@@ -181,20 +181,21 @@ footer {
 .overlay-content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
     position: relative;
-    top: 10%;
+    top: 15%;
     text-align: center;
-    margin-top: 50px;
 }
 
 .nav-item {
     text-decoration: none;
-    color: #4F200D;
-    font-family: 'Lora';
-    font-size: 2rem;
-    font-weight: bold;
-    overflow: hidden;
+    font-family: 'Noto Serif';
+    font-weight: 300;
+    font-style: light;
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-transform: none;
+    color: #000;
 }
 
 .nav-item:hover,
