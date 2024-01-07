@@ -25,7 +25,13 @@ export default function Products() {
 
     return (
         <div className="products-list-container">
-            <h1>Explore our product options</h1>
+            <h2>Explore our products</h2>
+            <p className="products-list-disclaimer">
+                Indulge in the exquisite flavors of our homemade cakes and sweets, meticulously crafted with the
+                freshest and finest ingredients. Your satisfaction is our priority, so feel free to reach out for
+                any inquiries about specific food allergies – we're here to ensure your enjoyment is both delightful
+                and worry-free.
+            </p>
             <ProductTypeBox handleTypeChange={handleTypeChange} />
             <div className="products-list">
                 {displayedProducts.map((product) => (

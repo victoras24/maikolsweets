@@ -106,7 +106,7 @@ body {
     font-weight: 400;
     letter-spacing: -.022em;
     position: relative;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .main-wrapper {
@@ -129,7 +129,7 @@ body {
 .main-photo-about-link {
     text-align: center;
     text-decoration: none;
-    color: #aaaaaa;
+    color: #fba8e6;
     /* background-color: grey;
     padding: 5px 10px;
     border-radius: 20px;
@@ -206,7 +206,7 @@ footer {
 
 #nav-icon4 {
     width: 30px;
-    height: 30px;
+    height: 20px;
     position: relative;
     margin: 20px auto;
     transform: rotate(0deg);
@@ -261,8 +261,15 @@ footer {
     padding-inline: 25px;
 }
 
-.products-list-container h1 {
+.products-list-container h2 {
     text-align: center;
+    margin-top: 90px;
+}
+
+.products-list-disclaimer {
+    text-align: center;
+    font-size: 13px;
+    color: #8E8E93;
 }
 
 .products-filter {
