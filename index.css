@@ -265,6 +265,8 @@ footer {
 .products-list-container h2 {
     text-align: center;
     margin-top: 90px;
+    font-family: 'Noto Serif';
+    font-weight: 300;
 }
 
 .products-list-disclaimer {
@@ -281,7 +283,7 @@ footer {
 
 .products-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     justify-items: center;
     gap: 34px;
     margin-top: 16px;
@@ -292,37 +294,45 @@ footer {
 }
 
 .product-container img {
-    width: 150px;
-    height: 200px;
+    width: 299px;
     border-radius: 5px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-
-.product-name,
-.product-price {
-    color: #4F200D;
-    margin: 0;
+    margin-bottom: 5px;
 }
 
 .product-name {
-    font-size: 16px;
+    color: #6d4833;
+    font-family: 'Notos Serif';
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .product-price {
-    font-size: 13px;
+    font-family: 'Notos Serif';
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #6d483399;
 }
 
 
 .product-type {
     position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: #4F200D;
+    top: 15px;
+    left: 15px;
+    background-color: #fff;
     padding: 3px 6px;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #fffcf7;
-    font-size: 13px;
+    border-radius: 5px;
+    color: #bd8f68;
+    font-family: 'Noto Serif';
+    letter-spacing: 5px;
+    font-size: 15px;
 }
 
 /* Product type select */
@@ -362,33 +372,6 @@ li {
     cursor: pointer;
     width: 100px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
-}
-
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
-}
-
-.type-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.box {
-    width: 150px;
-    height: auto;
-    display: flex;
-    background: #ffe88d;
-    color: #1f1f1f;
-    font-size: 15px;
-    font-weight: 400;
-    border-radius: 10px;
-    padding: 0;
-    margin: 0;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
 }
 
 .product-detail-container {

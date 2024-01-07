@@ -68,7 +68,7 @@ export default function ProductTypeBox({ handleTypeChange }) {
     return (
         <div>
             <div ref={ref} />
-            <div className="type-container">
+            {/* <div className="type-container">
                 <div className="controls">
                     <motion.button
                         className="filter-button"
@@ -88,7 +88,9 @@ export default function ProductTypeBox({ handleTypeChange }) {
                         />
                     )}
                 </AnimatePresence>
-            </div>
+            </div> */}
+
+
         </div>
     )
 }
