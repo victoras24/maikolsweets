@@ -1,15 +1,15 @@
 [
     {
         "id": 1,
-        "image": "https://images.pexels.com/photos/10586982/pexels-photo-10586982.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-        "name": "Chocolate Chip",
+        "image": "../assets/trouboutski.jpg",
+        "name": "Trouboutski",
         "description": "Delicious homemade chocolate chip cookies. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
-        "type": "Seasonal",
-        "price": "10.99"
+        "type": "Individual Cakes",
+        "price": "1 / piece"
     },
     {
         "id": 2,
-        "image": "https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "image": "../assets/unnamed.jpg",
         "name": "Candy",
         "description": "Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Tranditional",

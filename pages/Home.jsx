@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="home-page-main-wrapper">
             <div className="main-photo">
-                <img className="main-photo-img" src="https://images.pexels.com/photos/7816720/pexels-photo-7816720.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="main photo" />
+                <img className="main-photo-img" src="assets/trouboutski.jpg" alt="main photo" />
                 <div className="main-photo-text">
                     <h2 className="main-title">Welcome to Maikol Sweets</h2>
                     <h3>Discover the Sweet Side of Life</h3>
