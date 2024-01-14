@@ -9,26 +9,29 @@ import { useAuth } from "../components/AuthProvider";
 export const useLoginWithGoogle = () => {
     const navigate = useNavigate()
     const { userLogin } = useAuth()
-    const [signInWithGoogle, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, error] = useSignInWithGoogle(auth)
 
     const googleLogin = async () => {
         try {
             const newUser = await signInWithGoogle()
-            if (!newUser && error) {
-                toast.error(error.message)
+            console.log("newUser:", newUser)
+
+            if (!newUser || !newUser.user) {
+                toast.error("Error logging in with Google")
                 return
             }
 
             const userRef = doc(firestore, "users", newUser.user.uid)
             const userSnap = await getDoc(userRef)
+            console.log("userSnap:", userSnap)
 
             if (userSnap.exists()) {
-                //login
+                // login
                 const userDoc = userSnap.data()
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
                 userLogin(userDoc)
             } else {
-                //signup
+                // signup
                 const userDoc = {
                     uid: newUser.user.uid,
                     email: newUser.user.email,
@@ -39,13 +42,13 @@ export const useLoginWithGoogle = () => {
                     savedProducts: [],
                     createdAt: Date.now(),
                 }
+
                 await setDoc(doc(firestore, "users", newUser.user.uid), userDoc)
                 localStorage.setItem("user-info", JSON.stringify(userDoc))
                 userLogin(userDoc)
                 navigate("/")
             }
-        }
-        catch (error) {
+        } catch (error) {
             toast.error(error.message)
             console.log(error.message)
         }
