@@ -394,7 +394,7 @@ li {
 
 li {
     cursor: pointer;
-    padding: 10px;
+    padding: 2px;
     border-bottom: 1px rgba(128, 128, 128, 0.281) solid;
     width: 100%;
 }
@@ -646,6 +646,8 @@ li {
 .cart-header {
     display: flex;
     justify-content: space-between;
+    font-family: 'Noto Serif';
+    letter-spacing: 3px;
     align-items: center;
     border-bottom: 1px solid #cdcdcd;
     color: #777777;
@@ -664,10 +666,11 @@ li {
 
 .fa-trash-can {
     font-size: 20px;
+    color: #6d4833;
 }
 
 .fa-xmark {
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
 }
 
@@ -686,6 +689,7 @@ li {
 
 .cart-empty p {
     color: #cdcdcd;
+    letter-spacing: 3px;
 }
 
 .badge-cart {
@@ -711,12 +715,21 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    color: #777777;
+    font-family: 'Noto Serif';
+    color: #6d483399;
+    text-transform: uppercase;
 }
 
 .cart-item-image {
     width: 80px;
     height: auto;
+    border-radius: 20px;
+    margin-right: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.cart-item-name {
+    font-size: 15px;
 }
 
 .cart-item-price {
@@ -726,6 +739,13 @@ li {
 .cart-item-name-price {
     justify-content: start;
     text-align: start;
+}
+
+.cart-total {
+    font-family: 'Noto Serif';
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #6d4833;
 }
 
 /* account */

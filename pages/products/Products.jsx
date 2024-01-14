@@ -38,7 +38,7 @@ export default function Products() {
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: -300, opacity: 0 }}
-                        transition={{ type: "spring" }}
+                        transition={{ duration: 1 }}
                         layout
                         className="product-container">
                         <Link

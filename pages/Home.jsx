@@ -33,9 +33,6 @@ export default function Home() {
                     desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
             </div>
-            <div className="main-button-container">
-
-            </div>
         </div>
     )
 }
