@@ -10,7 +10,7 @@
     {
         "id": 2,
         "image": "../assets/unnamed.jpg",
-        "name": "Candy",
+        "name": "Spartak",
         "description": "Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Tranditional",
         "price": "10.20"
