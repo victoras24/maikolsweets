@@ -48,6 +48,7 @@ export const useLoginWithGoogle = () => {
                 userLogin(userDoc)
                 navigate("/")
             }
+
         } catch (error) {
             toast.error(error.message)
             console.log(error.message)

@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "image": "../assets/trouboutski.jpg",
+        "image": "../assets/five.jpg",
         "name": "Trouboutski",
         "description": "Delicious homemade chocolate chip cookies. Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Individual Cakes",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "image": "../assets/unnamed.jpg",
+        "image": "../assets/one.jpg",
         "name": "Spartak",
         "description": "Delicious homemade candy. Quisque et pharetra erat. Nam non quam erat. Aliquam erat volutpat. Cras fermentum viverra aliquam. In quis felis ullamcorper, commodo libero et, viverra dolor. Praesent maximus dapibus congue. Quisque sit amet nisl consequat, posuere purus in, egestas lectus. Nullam eget accumsan odio.",
         "type": "Tranditional",

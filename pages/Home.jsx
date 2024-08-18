@@ -5,9 +5,9 @@ export default function Home() {
     return (
         <div className="home-page-main-wrapper">
             <div className="main-photo">
-                <img className="main-photo-img" src="assets/trouboutski.jpg" alt="main photo" />
+                <img className="main-photo-img" src="assets/front-photo.jpg" alt="main photo" />
                 <div className="main-photo-text">
-                    <h2 className="main-title">Welcome to Maikol Sweets</h2>
+                    <h2 className="main-title">Welcome to Eleni Sweets</h2>
                     <h3>Discover the Sweet Side of Life</h3>
                     <div className="main-photo-links">
                         <Link className="main-photo-about-link" to="about">About us <i className="fa-solid fa-chevron-right"></i></Link>
@@ -18,7 +18,7 @@ export default function Home() {
             <div className="intro-text">
                 <p>
                     Indulge in the exquisite world of homemade sweets crafted with love and passion.
-                    At Maikol Sweets, we take pride in creating delectable treats that not only
+                    At Eleni Sweets, we take pride in creating delectable treats that not only
                     satisfy your sweet cravings but also warm your heart. Each dessert is carefully
                     handcrafted using the finest ingredients, ensuring a burst of flavors in every bite.
                     Explore our diverse range of sweets, from traditional classics to innovative

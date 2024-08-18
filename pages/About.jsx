@@ -10,12 +10,12 @@ export default function About() {
             transition={{ type: "spring" }}
             layout
             className="about-container">
-            <h1>About Maikol Sweets</h1>
+            <h1>About Eleni Sweets</h1>
             <img className="about-image-top" src="https://images.pexels.com/photos/3218467/pexels-photo-3218467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
             <div className="about-text">
                 <p>
-                    Meet the creative force behind Maikol Sweets, Michael Giouzalidis. Residing in
-                    the picturesque city of Paphos, Cyprus, Michael embarked on the sweet-making journey
+                    Meet the creative force behind Eleni Seets Sweets, Eleni. Residing in
+                    the picturesque city of Paphos, Cyprus, Eleni embarked on the sweet-making journey
                     driven by pure passion.
                 </p>
             </div>
@@ -24,15 +24,15 @@ export default function About() {
             <div className="about-text-middle">
                 <p>
                     His story is one of spontaneity and genuine love for crafting
-                    delectable treats. Unfettered by plans or trends, Michael's foray into homemade sweets
+                    delectable treats. Unfettered by plans or trends, Eleni's foray into homemade sweets
                     is a testament to his dedication to sharing the joy of sweetness with each creation.
                 </p>
             </div>
             <img className="about-image-end"
                 src="https://images.pexels.com/photos/8642065/pexels-photo-8642065.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" />
             <div className="about-text-end">
-                <p>Join us as we delve into the delightful world of Maikol Sweets, where every treat is a
-                    product of Michael's unwavering passion and commitment to the art of sweet making.</p>
+                <p>Join us as we delve into the delightful world of Eleni Sweets, where every treat is a
+                    product of Eleni's unwavering passion and commitment to the art of sweet making.</p>
             </div>
             <img src="https://images.pexels.com/photos/3302494/pexels-photo-3302494.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" />
         </motion.div>

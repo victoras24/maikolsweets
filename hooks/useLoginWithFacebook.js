@@ -18,7 +18,7 @@ export const useLoginWithFacebook = () => {
 
             if (!newUser || !newUser.user) {
                 toast.error("Error logging in with Facebook")
-                return
+                return // check why we get this error (only michael)
             }
 
             const userRef = doc(firestore, "users", newUser.user.uid)

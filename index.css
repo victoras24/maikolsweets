@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #fffcf7;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Serif';
     overflow-x: hidden;
 }
 
@@ -27,13 +27,15 @@ body {
     box-shadow: 0px 15px 15px -22px rgba(0, 0, 0, 0.45);
 }
 
-.logo-img {
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 60px;
+.header-logo {
+    font-family: "Grey Qo", cursive;
     cursor: pointer;
     position: relative;
     text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: #191919;
+    letter-spacing: 0.2em;
 }
 
 .header.visible {
@@ -49,7 +51,7 @@ body {
     color: #191919;
     text-align: center;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .home-page-main-wrapper {
@@ -105,7 +107,7 @@ body {
     font-weight: 400;
     letter-spacing: -.022em;
     position: relative;
-    margin-top: 50px;
+    margin-top: 33px;
 }
 
 .main-wrapper {
@@ -116,6 +118,9 @@ body {
     text-align: center;
     padding: 0 1.2rem;
     grid-row: 2;
+    color: #6d4833;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
 }
 
 .main-button-container {
@@ -217,7 +222,7 @@ footer {
 
 #nav-icon4 span {
     position: absolute;
-    height: 2px;
+    height: 1.4px;
     width: 100%;
     background: #191919;
     border-radius: 3px;
@@ -529,16 +534,23 @@ li {
 
 .add-to-cart-button {
     padding: 10px 70px;
-    background: #ff8c38;
-    color: white;
     font-weight: 600;
     border: none;
     border-radius: 18px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
     font-size: 18px;
+    border: 1px solid #6d4833;
     cursor: pointer;
-
     white-space: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-family: 'Noto Serif';
+    line-height: 1.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6d4833;
+    margin: 30px 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
+
 }
 
 .product-detail-quantity {
@@ -549,9 +561,16 @@ li {
     text-align: center;
     border: none;
     border-radius: 20px;
-    background-color: #ff8c38;
-    color: white;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.20);
+    border: 1px solid #6d4833;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-family: 'Noto Serif';
+    line-height: 1.7rem;
+    text-transform: uppercase;
+    color: #6d4833;
 }
 
 .add-to-cart-button-container {
@@ -911,8 +930,8 @@ li {
     justify-content: center;
 }
 
-.fa-user-astronaut {
-    font-size: 25px;
+.fa-user {
+    font-size: 20px;
     margin-right: 20px;
     position: relative;
     color: #191919;
