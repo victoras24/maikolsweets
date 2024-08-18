@@ -1,5 +1,4 @@
-
-import { useState, createContext, useContext } from "react"
+import { useState, createContext, useContext } from "react";
 
 const CartContext = createContext()
 
@@ -8,51 +7,60 @@ export const CartProvider = ({ children }) => {
     const [openCart, setOpenCart] = useState(false)
 
     const addToCart = (product) => {
-        const existingItemIndex = cartItems.findIndex((item) => item.id === product.id)
+        const priceValue = parseFloat(product.price.split('/')[0].trim())
 
-        if (existingItemIndex !== -1) {
-            // If the product with the same ID already exists, update its quantity
-            const updatedCartItems = [...cartItems]
-            updatedCartItems[existingItemIndex].quantity += product.quantity
-            setCartItems(updatedCartItems)
-        } else {
-            // If the product does not exist, add it to the cart
-            setCartItems((prevCartItems) => ([...prevCartItems, { ...product }]))
+        const newItem = {
+            ...product,
+            price: priceValue,
+            quantity: Number(product.quantity || 1)
         }
+
+        setCartItems((prevCartItems) => {
+            const existingItemIndex = prevCartItems.findIndex((item) => item.id === newItem.id)
+
+            if (existingItemIndex !== -1) {
+                const updatedCartItems = [...prevCartItems]
+                updatedCartItems[existingItemIndex].quantity += newItem.quantity
+                return updatedCartItems
+            } else {
+                return [...prevCartItems, newItem]
+            }
+        })
 
         setOpenCart(true)
     }
 
-    const toggle = () => {
+    const removeFromCart = (productId) => {
+        setCartItems((prevCartItems) =>
+            prevCartItems.reduce((acc, item) => {
+                if (item.id === productId) {
+                    if (item.quantity > 1) {
+                        acc.push({ ...item, quantity: item.quantity - 1 })
+                    }
+                } else {
+                    acc.push(item)
+                }
+                return acc
+            }, [])
+        )
+    }
+
+    const toggleCart = () => {
         setOpenCart((prevState) => !prevState)
     }
 
-    const removeFromCart = (productId) => {
-        setCartItems((prevCartItems) => {
-            const updatedCartItems = prevCartItems.map((item) => {
-                if (item.id === productId) {
-                    if (item.quantity > 1) {
-                        // If quantity is greater than 1, decrement the quantity
-                        return { ...item, quantity: item.quantity - 1 }
-                    } else {
-                        // If quantity is 1, remove the item
-                        return null
-                    }
-                }
-                return item
-            })
-
-            return updatedCartItems.filter((item) => item !== null)
-        })
-    }
-
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, openCart, toggle, setOpenCart }}>
+        <CartContext.Provider value={{
+            cartItems,
+            addToCart,
+            removeFromCart,
+            openCart,
+            toggleCart,
+            setOpenCart
+        }}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export const useCart = () => {
-    return useContext(CartContext)
-}
+export const useCart = () => useContext(CartContext)
