@@ -10,7 +10,7 @@ export const useLogin = () => {
     const navigate = useNavigate()
     const [
         signInWithEmailAndPassword,
-        user,
+
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth)

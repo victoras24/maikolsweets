@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithRedirect } from "firebase/auth"
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth"
 import { getFirestore } from "@firebase/firestore"
 import { getStorage } from "firebase/storage"
 
@@ -25,11 +25,11 @@ googleProvider.setCustomParameters({
 const facebookProvider = new FacebookAuthProvider()
 
 export const signInWithFacebookRedirect = () => {
-    signInWithRedirect(auth, facebookProvider)
+    signInWithPopup(auth, facebookProvider)
 }
 
 export const signInWithGoogleRedirect = () => {
-    signInWithRedirect(auth, googleProvider)
+    signInWithPopup(auth, googleProvider)
 }
 
 export { app, auth, firestore, storage }
