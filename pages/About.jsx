@@ -10,7 +10,6 @@ export default function About() {
             transition={{ type: "spring" }}
             layout
             className="about-container">
-            <h1>About Eleni Sweets</h1>
             <img className="about-image-top" src="https://images.pexels.com/photos/3218467/pexels-photo-3218467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
             <div className="about-text">
                 <p>

@@ -533,7 +533,7 @@ li {
 }
 
 .add-to-cart-button {
-    padding: 10px 70px;
+    padding: 7px 50px;
     font-weight: 600;
     border: none;
     border-radius: 18px;
@@ -541,7 +541,6 @@ li {
     border: 1px solid #6d4833;
     cursor: pointer;
     white-space: nowrap;
-    overflow-x: auto;
     white-space: nowrap;
     font-family: 'Noto Serif';
     line-height: 1.7rem;
@@ -602,7 +601,7 @@ li {
 
 .about-text {
     position: absolute;
-    top: 366px;
+    top: 258px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
@@ -611,11 +610,13 @@ li {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 8px;
     text-align: center;
+    line-height: 1.8em;
+
 }
 
 .about-text-middle {
     position: absolute;
-    top: 815px;
+    top: 720px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
@@ -624,6 +625,7 @@ li {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 8px;
     text-align: center;
+    line-height: 1.8em;
 }
 
 .about-image-middle {
@@ -632,7 +634,7 @@ li {
 
 .about-text-end {
     position: absolute;
-    top: 1318px;
+    top: 1210px;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
@@ -641,6 +643,8 @@ li {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 8px;
     text-align: center;
+    line-height: 1.8em;
+
 }
 
 .about-image-end {
@@ -806,6 +810,7 @@ li {
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+    letter-spacing: 0.1em;
 }
 
 .account-login-container {
@@ -826,7 +831,7 @@ li {
     border: 1px solid rgba(209, 213, 219);
     height: 40px;
     text-indent: 10px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Noto Serif';
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
     font-weight: 400;
     width: 100%;
@@ -846,10 +851,13 @@ li {
     color: #1f1f1f;
     border: none;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+    font-family: 'Noto Serif';
+    letter-spacing: 0.1em;
+
 }
 
 .account-register-container {
@@ -873,11 +881,13 @@ li {
 .google-login-button {
     border: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 14px;
     color: #993245;
     text-align: justify;
     font-weight: 600;
     cursor: pointer;
+    font-family: 'Noto Serif';
+    letter-spacing: 0.1em;
 }
 
 .fa-google {
@@ -901,11 +911,13 @@ li {
 .facebook-login-button {
     border: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 14px;
     color: #4267B2;
     text-align: justify;
     font-weight: 600;
     cursor: pointer;
+    font-family: 'Noto Serif';
+    letter-spacing: 0.1em
 }
 
 .fa-facebook {
